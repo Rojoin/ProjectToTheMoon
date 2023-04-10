@@ -1,5 +1,8 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+
+
+
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] Transform playerModel;
@@ -8,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 movevementValue;
     [SerializeField] float leanLimit;
     [SerializeField] private Transform aimTarget;
-
+  
     // Start is called before the first frame update
     void Start()
     {
@@ -20,8 +23,9 @@ public class PlayerMovement : MonoBehaviour
     {
         LocalMove(movevementValue.x, movevementValue.y);
         RotationLook(movevementValue.x, movevementValue.y, lookSpeed);
-     //   HorizontalLean(playerModel, movevementValue.y, leanLimit, .1f);
+        HorizontalLean(playerModel, movevementValue.y, leanLimit, .1f);
         ClampPosition();
+        DebugManager.Instance.Log(this.tag, "Its Activated");
        
     }
 
@@ -29,10 +33,15 @@ public class PlayerMovement : MonoBehaviour
     {
 
         movevementValue = input.Get<Vector2>();
-          
-        
+        DebugManager.Instance.LogWarning(this.tag, "Movement Value:" + movevementValue.sqrMagnitude);
+
+
     }
-    private void LocalMove(float x, float y)
+    public void OnFire(InputValue input)
+    {
+        DebugManager.Instance.LogError(this.tag, "Pressed Fire");
+    }
+        private void LocalMove(float x, float y)
     {
         transform.localPosition += new Vector3(x, y, 0) * xySpeed * Time.deltaTime;
     }
@@ -45,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
     }
     void RotationLook(float h,float v, float speed)
     {
-      //  aimTarget.parent.position = Vector3.zero;
+        aimTarget.parent.position = Vector3.zero;
         aimTarget.localPosition = new Vector3(h, v, 1);
         transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(aimTarget.position), Mathf.Deg2Rad * speed);
 
