@@ -6,6 +6,7 @@ using UnityEngine;
 /// </summary>
 public class EnemyWaveManager : MonoBehaviour
 {
+
     [SerializeField] private CinemachineDollyCart dollyCart;
     [SerializeField] private EnemyMovementPattern[] pattern;
     [SerializeField] private float[] activationPoint;

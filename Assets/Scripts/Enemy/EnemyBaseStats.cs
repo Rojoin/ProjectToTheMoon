@@ -36,8 +36,6 @@ public class EnemyBaseStats : MonoBehaviour, IFillable
     [SerializeField] private AudioClip inpactSound;
     [SerializeField] [Range(0, 1)] private float inpactVolume;
 
-
-
     private void Start()
     {
         isActive = true;
@@ -45,21 +43,27 @@ public class EnemyBaseStats : MonoBehaviour, IFillable
         boom.enableEmission = false;
         CurrentHealth = maxHealth;
         boom.Stop();
-
     }
-
     private void OnTriggerEnter(Collider other)
     {
         if (!other.gameObject.TryGetComponent(out Bullet bullet) || !isActive)
             return;
 
+        ReceiveDamage(bullet);
+    }
+    /// <summary>
+    /// Receives damage according to the bullet
+    /// </summary>
+    /// <param name="bullet"></param>
+    private void ReceiveDamage(Bullet bullet)
+    {
         CurrentHealth -= bullet.Damage;
         Instantiate(impactPrefab, transform.position, Quaternion.identity, transform);
         SoundManager.Instance.PlaySound(inpactSound, inpactVolume);
         CheckEnemyStatus();
         bullet.DestroyGameObject();
     }
-    ///// <summary>
+    /// <summary>
     /// Check if enemy is Dead
     /// </summary>
     public void CheckEnemyStatus()
@@ -95,13 +99,11 @@ public class EnemyBaseStats : MonoBehaviour, IFillable
         model.SetActive(false);
         isActive = false;
     }
-
     /// <summary>
     /// Get currentHealth points
     /// Used for the Boss HealthBar
     /// </summary>
     /// <returns></returns>
-
     public float GetCurrentFillValue()
     {
         return CurrentHealth;

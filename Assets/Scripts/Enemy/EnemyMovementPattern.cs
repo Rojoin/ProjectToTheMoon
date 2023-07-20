@@ -12,10 +12,7 @@ public class EnemyMovementPattern : MonoBehaviour
     [SerializeField] private Transform enemyHolder;
     [SerializeField] private int defaultEnemyCount = 0;
     [SerializeField] private int specialEnemyCount = 0;
-    private List<EnemyMovement> enemysToSpawn;
-    [SerializeField]
-    private Transform bulletHolder;
-    private bool isActive = false;
+    [SerializeField] private Transform bulletHolder;
     [SerializeField] private Color color;
     [SerializeField] private float speed;
     [SerializeField] private Transform[] points;
@@ -25,6 +22,8 @@ public class EnemyMovementPattern : MonoBehaviour
     [SerializeField] private int endLoop;
     [SerializeField] private float spawnDelay = 0.5f;
     [SerializeField] private int enemyCounter;
+    private List<EnemyMovement> enemysToSpawn;
+    private bool isActive = false;
     private int maxEnemysInScene;
     private float spawnTimer = 0.0f;
 

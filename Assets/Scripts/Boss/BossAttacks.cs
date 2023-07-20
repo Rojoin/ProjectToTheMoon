@@ -7,9 +7,11 @@ using UnityEngine;
 public class BossAttacks : MonoBehaviour
 {
 
-    [SerializeField] private Transform shootingPoints;
+    [Header("Channels")]
     [SerializeField] private AskForBulletChannelSO askForBulletChannel;
     [SerializeField] private BulletConfiguration bulletConfiguration;
+    [Header("Transforms")]
+    [SerializeField] private Transform shootingPoints;
     [SerializeField] private Transform playerTransforms;
     private Transform[] bulletPoint;
     [Header("Cooldowns Presets")]

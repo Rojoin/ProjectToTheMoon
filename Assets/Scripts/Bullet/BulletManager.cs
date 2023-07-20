@@ -3,8 +3,9 @@ using UnityEngine;
 
 public class BulletManager : MonoBehaviour
 {
-
+    [Header("Channels")]
     [SerializeField] private AskForBulletChannelSO askForBulletChannel;
+    [Header("Transform")]
     [SerializeField] private Transform bulletParent;
     [SerializeField] private Transform world;
     [SerializeField] private Bullet bullet;
@@ -14,8 +15,6 @@ public class BulletManager : MonoBehaviour
     {
         askForBulletChannel.Subscribe(SpawnBullet);
     }
-
-
     public void OnDestroy()
     {
         askForBulletChannel.Unsubscribe(SpawnBullet);

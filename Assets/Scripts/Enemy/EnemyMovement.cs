@@ -5,6 +5,7 @@ using UnityEngine;
 /// </summary>
 public class EnemyMovement : MonoBehaviour
 {
+    [Header("Values")]
     [SerializeField] private float speed;
     [SerializeField] private float minDistance;
     [SerializeField] private Transform[] movementPoints;
@@ -58,14 +59,11 @@ public class EnemyMovement : MonoBehaviour
 
     private void Update()
     {
-
         isAlive = enemyBaseStats.IsAlive();
-        if (!isActive || hasEnded || !isAlive) return;
-
+        if (!isActive || hasEnded || !isAlive) 
+            return;
         Vector3 localPosition = movementPoints[currentPoint].localPosition - transform.parent.localPosition;
-
         Vector2 vector2Position = Vector2.MoveTowards(transform.localPosition, localPosition, speed * Time.deltaTime);
-
         transform.localPosition = new Vector3(vector2Position.x, vector2Position.y, transform.localPosition.z + localPosition.z);
         if (!(Vector2.Distance(transform.localPosition, localPosition) < minDistance)) return;
         if (!shouldLoop)
@@ -84,11 +82,9 @@ public class EnemyMovement : MonoBehaviour
             {
                 currentPoint++;
                 EndMovement();
-
             }
         }
     }
-
     /// <summary>
     /// Sets the hasEnded variable when the enemy reaches his destined location
     /// </summary>

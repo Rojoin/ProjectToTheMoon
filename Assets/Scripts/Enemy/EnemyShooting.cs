@@ -8,10 +8,11 @@ using UnityEngine;
 public class EnemyShooting : MonoBehaviour
 {
     
-
-    [SerializeField]private Transform shootingPoints;
+    [Header("ScriptableObjects")]
     [SerializeField] private AskForBulletChannelSO askForBulletChannel;
     [SerializeField] private BulletConfiguration bulletConfiguration;
+    [Header("Transforms")]
+    [SerializeField] private Transform shootingPoints;
     private Transform[] bulletPoint;
 
     [Header("Cooldowns Presets")]
