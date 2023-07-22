@@ -46,6 +46,7 @@ public abstract class ChannelSO<T1, T2> : ScriptableObject
         }
     }
 }
+
 public abstract class ChannelSO<T1, T2, T3> : ScriptableObject
 {
     private Action<T1, T2, T3> dataEvent;
