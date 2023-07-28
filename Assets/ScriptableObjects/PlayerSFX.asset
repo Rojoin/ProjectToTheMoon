@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ab4951ddb054fa3aa762ed7d8767a32, type: 3}
+  m_Name: PlayerSFX
+  m_EditorClassIdentifier: 
+  SFXChannel: {fileID: 11400000, guid: 36a416f31be194345b1e50441a807297, type: 2}
+  explosionSound: {fileID: 8300000, guid: 4cedceaf8b5c979439a0a34f61192892, type: 3}
+  explosionVolume: 0.258
+  inpactSound: {fileID: 8300000, guid: 0f9fd9f44b7a37d44a8770a03f465686, type: 3}
+  inpactVolume: 1
+  shootClip: {fileID: 8300000, guid: bbec4c70f6006b54fa1cc827283e7f92, type: 3}
+  shootVolume: 0.651
+  laserClip: {fileID: 8300000, guid: 532d97b9b01ea3247b1bbacd55944d6f, type: 3}
+  laserVolume: 0.659
+  prepareLaserClip: {fileID: 8300000, guid: 42434474876ee4d449160b85d5ce21c8, type: 3}
+  prepareLaserVolume: 0.593
+  barrelRollSound: {fileID: 8300000, guid: f626a89c4a2c12b43b4d82a62b687716, type: 3}
+  barrelRollVolume: 0.489
