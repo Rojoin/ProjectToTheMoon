@@ -9,7 +9,7 @@ public class PlayerMovementState : PlayerState
         playerShooting.enabled = true;
         boxCollider.enabled = true;
     }
-    public PlayerMovementState(PlayerMovement playerMovement, PlayerHealthSystem playerHealthSystem, PlayerShooting playerShooting, string name, StateMachine stateMachine,BoxCollider boxCollider) : base(playerMovement, playerHealthSystem, playerShooting, name, stateMachine,boxCollider)
+    public PlayerMovementState(PlayerMovement playerMovement, PlayerHealth playerHealthSystem, PlayerShooting playerShooting, string name, StateMachine stateMachine,BoxCollider boxCollider) : base(playerMovement, playerHealthSystem, playerShooting, name, stateMachine,boxCollider)
     {
     }
 }

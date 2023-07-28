@@ -1,25 +1,30 @@
 using System;
 using UnityEngine;
+
 /// <summary>
 /// Class for the PlayerController
 /// </summary>
-
 public class PlayerHealthSystem : MonoBehaviour, IFillable
 {
+    [Header("HealthValues")]
     [SerializeField] private int maxHealthPoints;
-
     [SerializeField] private float _currentHealth;
+    [Header("Channels")]
     [SerializeField] private FillUIChannelSO fillUIChannel;
     [SerializeField] private VoidChannelSO playerDeathChannelSO;
-    [field: SerializeField] public bool IsAlive { get; private set; } = true;
-    private static int _score = 0;
+    [Header("Effects")]
     [SerializeField] private ParticleSystem impactPrefab;
     [SerializeField] private ParticleSystem boom;
+    [Header("Sounds")]
     [SerializeField] private AudioClip explosionSound;
     [SerializeField] [Range(0, 1)] private float explosionVolume;
     [SerializeField] private AudioClip inpactSound;
     [SerializeField] [Range(0, 1)] private float inpactVolume;
 
+    /// <summary>
+    /// Value for the current health of the character
+    /// Every time its sets Raises the FillUI Channel
+    /// </summary>
     public float CurrentHealth
     {
         get => _currentHealth;
@@ -43,10 +48,9 @@ public class PlayerHealthSystem : MonoBehaviour, IFillable
     public void ReceiveDamage(float damage)
     {
         CurrentHealth -= damage;
-        if (!(CurrentHealth < 0.0f)) 
+        if (!(CurrentHealth < 0.0f))
             return;
         playerDeathChannelSO.RaiseEvent();
-        IsAlive = false;
         DeactivatePlayer();
     }
 
@@ -55,7 +59,6 @@ public class PlayerHealthSystem : MonoBehaviour, IFillable
     /// </summary>
     public void DeactivatePlayer()
     {
-        IsAlive = false;
         var explosion = Instantiate(boom, transform.position, transform.rotation);
         explosion.Play();
         SoundManager.Instance.PlaySound(explosionSound, explosionVolume);
@@ -64,7 +67,7 @@ public class PlayerHealthSystem : MonoBehaviour, IFillable
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.TryGetComponent<Bullet>(out var bullet)) 
+        if (!other.TryGetComponent<Bullet>(out var bullet))
             return;
 
         Instantiate(impactPrefab, transform.position, Quaternion.identity, transform);
@@ -72,6 +75,7 @@ public class PlayerHealthSystem : MonoBehaviour, IFillable
         ReceiveDamage(bullet.Damage);
         bullet.DestroyGameObject();
     }
+
     /// <summary>
     /// Gets currentHealthPoints.
     /// Used for the PlayerHealthBar.
@@ -81,6 +85,7 @@ public class PlayerHealthSystem : MonoBehaviour, IFillable
     {
         return CurrentHealth;
     }
+
     /// <summary>
     /// Gets maxHealthPoints
     /// Used for the PlayerHealthBar
@@ -90,5 +95,4 @@ public class PlayerHealthSystem : MonoBehaviour, IFillable
     {
         return maxHealthPoints;
     }
-
 }

@@ -18,7 +18,7 @@ public class PlayerRollingState : PlayerState
         boxCollider.enabled = true;
     }
 
-    public PlayerRollingState(PlayerMovement playerMovement, PlayerHealthSystem playerHealthSystem, PlayerShooting playerShooting, string name, StateMachine stateMachine,BoxCollider boxCollider) : base(playerMovement, playerHealthSystem, playerShooting, name, stateMachine,boxCollider)
+    public PlayerRollingState(PlayerMovement playerMovement, PlayerHealth playerHealthSystem, PlayerShooting playerShooting, string name, StateMachine stateMachine,BoxCollider boxCollider) : base(playerMovement, playerHealthSystem, playerShooting, name, stateMachine,boxCollider)
     {
     }
 }

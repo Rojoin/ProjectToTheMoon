@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+
 /// <summary>
 /// Class for the BulletClass
 /// </summary>
@@ -22,8 +23,7 @@ public class Bullet : MonoBehaviour
             yield return null;
         }
     }
-
-
+    
     /// <summary>
     /// Set the World of the bullet
     /// </summary>
@@ -50,6 +50,4 @@ public class Bullet : MonoBehaviour
     {
         Destroy(this.gameObject);
     }
-
-
 }

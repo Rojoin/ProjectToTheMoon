@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 /// <summary>
@@ -21,13 +22,10 @@ public class PlayerShooting : MonoBehaviour, IFillable
     [SerializeField] private Transform cannon;
     [SerializeField] private GameObject rayObject;
 
-    [Header("Audio")]
-    [SerializeField] private AudioClip shootClip;
-    [SerializeField] [Range(0, 1)] private float shootVolume;
-    [SerializeField] private AudioClip laserClip;
-    [SerializeField] [Range(0, 1)] private float laserVolume;
-    [SerializeField] private AudioClip prepareLaserClip;
-    [SerializeField] [Range(0, 1)] private float prepareLaserVolume;
+    [Header("UnityEvents")]
+    public UnityEvent OnBulletShoot;
+    public UnityEvent OnLaserShoot;
+    public UnityEvent OnPrepareLaser;
 
     [Header("Variables")]
     public int raycastDistance;
@@ -114,7 +112,7 @@ public class PlayerShooting : MonoBehaviour, IFillable
             {
                 prefireParticle.Play();
                 if (!isChargingSpecialBeam)
-                    SoundManager.Instance.PlaySound(prepareLaserClip, prepareLaserVolume);
+                  OnPrepareLaser.Invoke();
 
                 isChargingSpecialBeam = true;
             }
@@ -163,7 +161,7 @@ public class PlayerShooting : MonoBehaviour, IFillable
     /// </summary>
     private void ShootBullet()
     {
-        SoundManager.Instance.PlaySound(shootClip, shootVolume);
+        OnBulletShoot.Invoke();
         foreach (Transform shootingPos in shootingPoints)
         {
             askForBulletChannel.RaiseEvent(shootingPos, LayerMask.LayerToName(gameObject.layer), bulletConfiguration, transform.rotation);
@@ -176,7 +174,7 @@ public class PlayerShooting : MonoBehaviour, IFillable
     public void ShootRay()
     {
         var newRay = Instantiate(rayObject, rayPosition.position, transform.rotation, transform);
-        SoundManager.Instance.PlaySound(laserClip, laserVolume);
+        OnLaserShoot.Invoke();
         newRay.transform.localPosition += beamLocalPosition;
         if (CheckLaserHitBox(out var hit) && hit.collider.TryGetComponent<EnemyBaseStats>(out var enemyBaseStats) && enemyBaseStats.isActive)
         {

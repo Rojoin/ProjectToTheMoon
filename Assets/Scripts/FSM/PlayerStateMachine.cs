@@ -5,7 +5,7 @@ public class PlayerStateMachine : StateMachine
 {
 
     [SerializeField] private PlayerMovement playerMovement;
-    [SerializeField] private PlayerHealthSystem playerHealthSystem;
+    [SerializeField] private PlayerHealth playerHealthSystem;
     [SerializeField] private PlayerShooting playerShooting;
     [SerializeField] private VoidChannelSO pauseChannelSo;
     [SerializeField] private VoidChannelSO rollChannelSo;
@@ -18,7 +18,7 @@ public class PlayerStateMachine : StateMachine
         boxCollider = GetComponent<BoxCollider>();
         pauseChannelSo.Subscribe(OnPause);
         rollChannelSo.Subscribe(OnRoll);
-        playerHealthSystem = GetComponent<PlayerHealthSystem>();
+        playerHealthSystem = GetComponent<PlayerHealth>();
         playerShooting = GetComponent<PlayerShooting>();
         playerMovement = GetComponent<PlayerMovement>();
         movementState = new PlayerMovementState(playerMovement, playerHealthSystem, playerShooting, "PlayerMovementState", this,boxCollider);

@@ -11,6 +11,7 @@ public class EnemyBaseStats : MonoBehaviour, IFillable
     [SerializeField] private FillUIChannelSO fillUIChannel;
     [SerializeField] private IntChannelSO OnScoreUpChannel;
     
+    
     [Header("Variables")]
     public bool isActive;
     public float CurrentHealth
