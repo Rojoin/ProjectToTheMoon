@@ -34,10 +34,10 @@ public class PlayerShooting : MonoBehaviour, IFillable
     private bool isPressingButton;
     private bool singleBulletShoot;
     [Header("Cooldowns Presets")]
+    public float specialBeanCooldown;
     private float _specialBeanCooldownTimer = 0.0f;
     private float currentBeanTimer;
     private bool canFireSpecialBeam;
-    private float specialBeanCooldown;
     public float SpecialBeanCooldownTimer
     {
         get => _specialBeanCooldownTimer;
@@ -172,6 +172,7 @@ public class PlayerShooting : MonoBehaviour, IFillable
         newRay.transform.localPosition += beamLocalPosition;
         if (CheckLaserHitBox(out var hit) && hit.collider.TryGetComponent<EnemyHealth>(out var enemyBaseStats) && enemyBaseStats.isActive)
         {
+            Debug.Log("Hit");
             enemyBaseStats.ReceiveDamage(laserDamage);
             if (!enemyBaseStats.IsAlive())
             {

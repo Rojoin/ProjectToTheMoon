@@ -22,7 +22,7 @@ class ModelsSFX : SFXSO
         SFXChannel.RaiseEvent(explosionSound, explosionVolume);
     }
 
-    public void InpactSound()
+    public void ImpactSound()
     {
         SFXChannel.RaiseEvent(inpactSound, inpactVolume);
     }

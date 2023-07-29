@@ -179,6 +179,86 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 2bad5b85-3668-46f0-921d-fcfb4727ff3b
     m_ActionName: Player/FocusMode[/Keyboard/shift]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6871089600134802310}
+        m_TargetAssemblyTypeName: InputController, Assembly-CSharp
+        m_MethodName: OnCheatInfinityAmmo
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 3354adf1-aebb-4531-9492-39fa81fd2279
+    m_ActionName: Player/InstantLaser[/Keyboard/f8,/DualSenseGamepadHID/select,/DualSenseGamepadHID/rightStickPress,/DualSenseGamepadHID/buttonWest]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6871089600134802310}
+        m_TargetAssemblyTypeName: InputController, Assembly-CSharp
+        m_MethodName: OnCheatNextLevel
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 7faf233f-bfbd-4918-babc-2b04771c9b87
+    m_ActionName: Player/NextLevel[/Keyboard/f9,/DualSenseGamepadHID/select,/DualSenseGamepadHID/rightStickPress,/DualSenseGamepadHID/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6871089600134802310}
+        m_TargetAssemblyTypeName: InputController, Assembly-CSharp
+        m_MethodName: OnCheatGodMode
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 1936b5af-e43b-497b-a7a1-045a17fd8389
+    m_ActionName: Player/GodMode[/Keyboard/f10,/DualSenseGamepadHID/select,/DualSenseGamepadHID/rightStickPress,/DualSenseGamepadHID/buttonNorth]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6871089600134802310}
+        m_TargetAssemblyTypeName: InputController, Assembly-CSharp
+        m_MethodName: OnCheatFlash
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 3ad732a9-e592-491b-b761-a2e06b6d49c8
+    m_ActionName: Player/Flash[/Keyboard/f11,/DualSenseGamepadHID/select,/DualSenseGamepadHID/rightStickPress,/DualSenseGamepadHID/buttonEast]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6871089600134802310}
+        m_TargetAssemblyTypeName: InputController, Assembly-CSharp
+        m_MethodName: OnCheatNuke
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: f81b560c-2b23-4fc8-8889-8c4eda7ba957
+    m_ActionName: Player/Nuke[/Keyboard/f12,/DualSenseGamepadHID/select,/DualSenseGamepadHID/rightStickPress,/DualSenseGamepadHID/leftStickPress]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -201,3 +281,8 @@ MonoBehaviour:
   OnPauseChannel: {fileID: 11400000, guid: a2fc920baef67b244ad6b14575cb5df8, type: 2}
   OnFocusChannel: {fileID: 11400000, guid: d7cd1eb0e3b1ecb46a3595e1d1e9a7cf, type: 2}
   OnFireChannel: {fileID: 11400000, guid: 92de2121c9a7bb94f8792590aa4970d2, type: 2}
+  OnInfinityLaser: {fileID: 11400000, guid: 3e76aaef19c108e46ba0ec9fcafeb078, type: 2}
+  OnFlash: {fileID: 11400000, guid: b9594bc8cb2dd5e428db324f0781c9f7, type: 2}
+  OnNextLevel: {fileID: 11400000, guid: 28b29d4785cfc9c47b47080a7dc931ae, type: 2}
+  OnGodMode: {fileID: 11400000, guid: 7aeb5ce4a1190af488d87b48c2c49583, type: 2}
+  OnNuke: {fileID: 11400000, guid: 4e9c5b990566d1d4faf8876637638c6b, type: 2}

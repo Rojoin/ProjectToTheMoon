@@ -32,7 +32,7 @@ public abstract class HealthSystem : MonoBehaviour, IFillable
     {
         CurrentHealth = maxHealthPoints;
     }
-    public void ReceiveDamage(float damage)
+    public virtual void ReceiveDamage(float damage)
     {
         CurrentHealth -= damage;
     }

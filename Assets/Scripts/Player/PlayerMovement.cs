@@ -25,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Values")]
     public float rollTime;
-    [SerializeField] private float xySpeed;
+    [SerializeField] public float xySpeed;
     [SerializeField] private float lookSpeed;
     [SerializeField] private float leanLimit;
     [SerializeField] private bool isFocusActivate = false;

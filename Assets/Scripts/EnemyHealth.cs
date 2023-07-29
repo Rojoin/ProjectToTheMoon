@@ -6,11 +6,15 @@ public class EnemyHealth : HealthSystem
     public bool isActive;
     [SerializeField] private IntChannelSO OnScoreUpChannel;
     [SerializeField] private int scoreValue;
+
     public override void Deactivate()
     {
         isActive = false;
         onDeath.Invoke();
-        OnScoreUpChannel.RaiseEvent(scoreValue);
+        if (!IsAlive())
+        {
+            OnScoreUpChannel.RaiseEvent(scoreValue);
+        }
         transform.gameObject.SetActive(false);
     }
 }

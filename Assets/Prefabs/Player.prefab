@@ -143,6 +143,7 @@ GameObject:
   - component: {fileID: 2115284897}
   - component: {fileID: 1034169358658799076}
   - component: {fileID: 3590136871086310165}
+  - component: {fileID: 5206926987498748490}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -304,6 +305,7 @@ MonoBehaviour:
   beamLocalPosition: {x: 0, y: 0, z: 45}
   beamVisualLifeTime: 0.2
   laserDamage: 500
+  specialBeanCooldown: 0
 --- !u!65 &9065621869916247657
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -391,12 +393,24 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 019fb19fee50c544da5aeba303d7e563, type: 2}
+        m_TargetAssemblyTypeName: VFXSO, Assembly-CSharp
+        m_MethodName: PlayImpactAnimation
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 4561208014810438878}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onHit:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: 3676f88fc724e7b448c68bf7687965e9, type: 2}
-        m_TargetAssemblyTypeName: PlayerSFX, Assembly-CSharp
-        m_MethodName: InpactSound
+        m_TargetAssemblyTypeName: ModelsSFX, Assembly-CSharp
+        m_MethodName: ImpactSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -406,7 +420,44 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 019fb19fee50c544da5aeba303d7e563, type: 2}
+        m_TargetAssemblyTypeName: VFXSO, Assembly-CSharp
+        m_MethodName: PlayImpactAnimation
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 4561208014810438878}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   fillUIChannel: {fileID: 11400000, guid: 793ad92a4a55fe84bb5d4d2b235b1b7b, type: 2}
+--- !u!114 &5206926987498748490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4561208014810438877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7c7de81a6834413ad369eb922e4f9fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnInfinityLaser: {fileID: 11400000, guid: 3e76aaef19c108e46ba0ec9fcafeb078, type: 2}
+  OnFlash: {fileID: 11400000, guid: b9594bc8cb2dd5e428db324f0781c9f7, type: 2}
+  OnNextLevel: {fileID: 11400000, guid: 28b29d4785cfc9c47b47080a7dc931ae, type: 2}
+  OnGodMode: {fileID: 11400000, guid: 7aeb5ce4a1190af488d87b48c2c49583, type: 2}
+  OnNuke: {fileID: 11400000, guid: 4e9c5b990566d1d4faf8876637638c6b, type: 2}
+  OnCheatActivated: {fileID: 11400000, guid: 986d1528413cdc54b8383c17f87ee965, type: 2}
+  playerHealth: {fileID: 0}
+  playerMovement: {fileID: 0}
+  playerShooting: {fileID: 0}
+  playerSettings: {fileID: 11400000, guid: e64f707767407f34587f76abbb141f4f, type: 2}
+  cheatText: 'Cheat:'
+  cheatSpeed: 50
+  cheatLaserCooldown: 1
 --- !u!1 &7312943972449882230
 GameObject:
   m_ObjectHideFlags: 0
