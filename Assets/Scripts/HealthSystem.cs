@@ -12,7 +12,8 @@ public abstract class HealthSystem : MonoBehaviour, IFillable
     [Header("Unity Events")]
     public UnityEvent onDeath;
     public UnityEvent onHit;
-    [Header("Channel")] [SerializeField] protected FillUIChannelSO fillUIChannel;
+    [Header("Channel")] 
+    [SerializeField] protected FillUIChannelSO fillUIChannel;
 
     /// <summary>
     /// Value for the current health of the character
@@ -31,7 +32,7 @@ public abstract class HealthSystem : MonoBehaviour, IFillable
     {
         CurrentHealth = maxHealthPoints;
     }
-    protected void ReceiveDamage(float damage)
+    public void ReceiveDamage(float damage)
     {
         CurrentHealth -= damage;
     }
@@ -40,7 +41,7 @@ public abstract class HealthSystem : MonoBehaviour, IFillable
     {
         return (CurrentHealth > 0);
     }
-    protected abstract void Deativate();
+    public abstract void Deactivate();
 
     public float GetCurrentFillValue()
     {
@@ -62,7 +63,7 @@ public abstract class HealthSystem : MonoBehaviour, IFillable
         bullet.DestroyGameObject();
         if (!IsAlive())
         {
-            Deativate();
+            Deactivate();
         }
     }
 }

@@ -15,11 +15,7 @@ public class PlayerHealthSystem : MonoBehaviour, IFillable
     [Header("Effects")]
     [SerializeField] private ParticleSystem impactPrefab;
     [SerializeField] private ParticleSystem boom;
-    [Header("Sounds")]
-    [SerializeField] private AudioClip explosionSound;
-    [SerializeField] [Range(0, 1)] private float explosionVolume;
-    [SerializeField] private AudioClip inpactSound;
-    [SerializeField] [Range(0, 1)] private float inpactVolume;
+  
 
     /// <summary>
     /// Value for the current health of the character
@@ -61,7 +57,6 @@ public class PlayerHealthSystem : MonoBehaviour, IFillable
     {
         var explosion = Instantiate(boom, transform.position, transform.rotation);
         explosion.Play();
-        SoundManager.Instance.PlaySound(explosionSound, explosionVolume);
         transform.gameObject.SetActive(false);
     }
 
@@ -71,7 +66,6 @@ public class PlayerHealthSystem : MonoBehaviour, IFillable
             return;
 
         Instantiate(impactPrefab, transform.position, Quaternion.identity, transform);
-        SoundManager.Instance.PlaySound(inpactSound, inpactVolume);
         ReceiveDamage(bullet.Damage);
         bullet.DestroyGameObject();
     }

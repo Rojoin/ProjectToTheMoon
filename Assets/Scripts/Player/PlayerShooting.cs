@@ -17,7 +17,6 @@ public class PlayerShooting : MonoBehaviour, IFillable
     [SerializeField] private BulletConfiguration bulletConfiguration;
     [SerializeField] private PlayerSettings player;
     [SerializeField] private Transform rayPosition;
-    [SerializeField] private ParticleSystem prefireParticle;
     [SerializeField] private Transform[] shootingPoints;
     [SerializeField] private Transform cannon;
     [SerializeField] private GameObject rayObject;
@@ -110,15 +109,11 @@ public class PlayerShooting : MonoBehaviour, IFillable
 
             if (currentBeanTimer > specialBeamTimer && canFireSpecialBeam)
             {
-                prefireParticle.Play();
+               
                 if (!isChargingSpecialBeam)
                   OnPrepareLaser.Invoke();
 
                 isChargingSpecialBeam = true;
-            }
-            else
-            {
-                prefireParticle.Stop();
             }
         }
     }
@@ -132,7 +127,6 @@ public class PlayerShooting : MonoBehaviour, IFillable
         currentBeanTimer = 0.0f;
         currentHoldShootTimer = minHoldShootTimer;
         isChargingSpecialBeam = false;
-        prefireParticle.Stop();
     }
     /// <summary>
     /// Checks if player can fireLaser
@@ -176,10 +170,13 @@ public class PlayerShooting : MonoBehaviour, IFillable
         var newRay = Instantiate(rayObject, rayPosition.position, transform.rotation, transform);
         OnLaserShoot.Invoke();
         newRay.transform.localPosition += beamLocalPosition;
-        if (CheckLaserHitBox(out var hit) && hit.collider.TryGetComponent<EnemyBaseStats>(out var enemyBaseStats) && enemyBaseStats.isActive)
+        if (CheckLaserHitBox(out var hit) && hit.collider.TryGetComponent<EnemyHealth>(out var enemyBaseStats) && enemyBaseStats.isActive)
         {
-            enemyBaseStats.CurrentHealth -= laserDamage;
-            enemyBaseStats.CheckEnemyStatus();
+            enemyBaseStats.ReceiveDamage(laserDamage);
+            if (!enemyBaseStats.IsAlive())
+            {
+                enemyBaseStats.Deactivate();
+            }
         }
         Destroy(newRay, beamVisualLifeTime);
     }

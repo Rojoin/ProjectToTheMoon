@@ -71,6 +71,51 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""InstantLaser"",
+                    ""type"": ""Button"",
+                    ""id"": ""3354adf1-aebb-4531-9492-39fa81fd2279"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NextLevel"",
+                    ""type"": ""Button"",
+                    ""id"": ""7faf233f-bfbd-4918-babc-2b04771c9b87"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""GodMode"",
+                    ""type"": ""Button"",
+                    ""id"": ""1936b5af-e43b-497b-a7a1-045a17fd8389"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Flash"",
+                    ""type"": ""Button"",
+                    ""id"": ""3ad732a9-e592-491b-b761-a2e06b6d49c8"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Nuke"",
+                    ""type"": ""Button"",
+                    ""id"": ""f81b560c-2b23-4fc8-8889-8c4eda7ba957"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -406,14 +451,278 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""9ce92644-62e8-4f16-9c03-939c6b440847"",
-                    ""path"": """",
+                    ""id"": ""d65404e7-eed8-4943-adb2-2cc5e521c552"",
+                    ""path"": ""<Keyboard>/f8"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""FocusMode"",
+                    ""action"": ""InstantLaser"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""ComboInstaLaser"",
+                    ""id"": ""23498ca8-3a83-4af7-8d22-4471045bf8ac"",
+                    ""path"": ""TwoModifiers"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""InstantLaser"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""modifier1"",
+                    ""id"": ""36b7d571-6c34-4fda-90c5-a4f3755d81e7"",
+                    ""path"": ""<Gamepad>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""InstantLaser"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""modifier2"",
+                    ""id"": ""1fd97fc1-478f-4fba-b012-6e58f8a66a44"",
+                    ""path"": ""<Gamepad>/rightStickPress"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""InstantLaser"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""f6c1b576-a6cf-4f63-915c-12d8014cf82d"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""InstantLaser"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a9de82ba-3d0b-4ac8-aa16-eae4ff12a369"",
+                    ""path"": ""<Keyboard>/f9"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NextLevel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c4f1a2f3-00bf-440f-9bc4-25db57745751"",
+                    ""path"": ""<Keyboard>/f12"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Nuke"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1a2dc407-1708-45da-bf3b-db4da54fe551"",
+                    ""path"": ""<Keyboard>/f10"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GodMode"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""966a057e-43e1-4e7b-86d2-744f2281a978"",
+                    ""path"": ""<Keyboard>/f11"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Flash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""ComboNextLevel"",
+                    ""id"": ""3d83bba1-1766-45bb-b3d5-786b21f9ffb6"",
+                    ""path"": ""TwoModifiers"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NextLevel"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""modifier1"",
+                    ""id"": ""0b09767b-d592-4227-9821-ddb3c596f75b"",
+                    ""path"": ""<Gamepad>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NextLevel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""modifier2"",
+                    ""id"": ""4d5d3f98-d112-4549-b24e-7ab78966d894"",
+                    ""path"": ""<Gamepad>/rightStickPress"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NextLevel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""860196aa-5d45-4d97-a4f5-7f4d32896a3b"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NextLevel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""ComboGodMode"",
+                    ""id"": ""6c386b84-6749-4ca3-8c05-dee6eaca953d"",
+                    ""path"": ""TwoModifiers"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GodMode"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""modifier1"",
+                    ""id"": ""5c7a315d-b246-48d5-9f9a-eda209126d5f"",
+                    ""path"": ""<Gamepad>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GodMode"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""modifier2"",
+                    ""id"": ""529b43eb-13db-410c-bf5f-ecbe1a817a2f"",
+                    ""path"": ""<Gamepad>/rightStickPress"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GodMode"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""6affe328-6f7c-41ad-982f-770aa7fa4df3"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GodMode"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""ComboFlash"",
+                    ""id"": ""cfe05841-8466-4857-a9c9-cbadccd39509"",
+                    ""path"": ""TwoModifiers"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Flash"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""modifier1"",
+                    ""id"": ""fcb544cc-bcf3-4ab3-a501-3e3f6493ffe4"",
+                    ""path"": ""<Gamepad>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Flash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""modifier2"",
+                    ""id"": ""932a5f98-c116-4d06-8ff3-caa788bf8a36"",
+                    ""path"": ""<Gamepad>/rightStickPress"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Flash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""0aa5bc3f-d63b-4694-83bd-d3c3dc454671"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Flash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""ComboFlash"",
+                    ""id"": ""6383ddea-f672-44e1-9cc2-8ef09afdaea2"",
+                    ""path"": ""TwoModifiers"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Nuke"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""modifier1"",
+                    ""id"": ""63116005-fbe1-4325-91a9-c06c8f3ff7e8"",
+                    ""path"": ""<Gamepad>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Nuke"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""modifier2"",
+                    ""id"": ""04d183f5-34b0-42d1-ac7b-b8a5c00399e3"",
+                    ""path"": ""<Gamepad>/rightStickPress"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Nuke"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""04178436-24a0-49f3-bf4b-de34637c4fb1"",
+                    ""path"": ""<Gamepad>/leftStickPress"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Nuke"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         },
@@ -1004,6 +1313,11 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         m_Player_RollInput = m_Player.FindAction("RollInput", throwIfNotFound: true);
         m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
         m_Player_FocusMode = m_Player.FindAction("FocusMode", throwIfNotFound: true);
+        m_Player_InstantLaser = m_Player.FindAction("InstantLaser", throwIfNotFound: true);
+        m_Player_NextLevel = m_Player.FindAction("NextLevel", throwIfNotFound: true);
+        m_Player_GodMode = m_Player.FindAction("GodMode", throwIfNotFound: true);
+        m_Player_Flash = m_Player.FindAction("Flash", throwIfNotFound: true);
+        m_Player_Nuke = m_Player.FindAction("Nuke", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1082,6 +1396,11 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_RollInput;
     private readonly InputAction m_Player_Pause;
     private readonly InputAction m_Player_FocusMode;
+    private readonly InputAction m_Player_InstantLaser;
+    private readonly InputAction m_Player_NextLevel;
+    private readonly InputAction m_Player_GodMode;
+    private readonly InputAction m_Player_Flash;
+    private readonly InputAction m_Player_Nuke;
     public struct PlayerActions
     {
         private @PlayerInputs m_Wrapper;
@@ -1091,6 +1410,11 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         public InputAction @RollInput => m_Wrapper.m_Player_RollInput;
         public InputAction @Pause => m_Wrapper.m_Player_Pause;
         public InputAction @FocusMode => m_Wrapper.m_Player_FocusMode;
+        public InputAction @InstantLaser => m_Wrapper.m_Player_InstantLaser;
+        public InputAction @NextLevel => m_Wrapper.m_Player_NextLevel;
+        public InputAction @GodMode => m_Wrapper.m_Player_GodMode;
+        public InputAction @Flash => m_Wrapper.m_Player_Flash;
+        public InputAction @Nuke => m_Wrapper.m_Player_Nuke;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1115,6 +1439,21 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @FocusMode.started += instance.OnFocusMode;
             @FocusMode.performed += instance.OnFocusMode;
             @FocusMode.canceled += instance.OnFocusMode;
+            @InstantLaser.started += instance.OnInstantLaser;
+            @InstantLaser.performed += instance.OnInstantLaser;
+            @InstantLaser.canceled += instance.OnInstantLaser;
+            @NextLevel.started += instance.OnNextLevel;
+            @NextLevel.performed += instance.OnNextLevel;
+            @NextLevel.canceled += instance.OnNextLevel;
+            @GodMode.started += instance.OnGodMode;
+            @GodMode.performed += instance.OnGodMode;
+            @GodMode.canceled += instance.OnGodMode;
+            @Flash.started += instance.OnFlash;
+            @Flash.performed += instance.OnFlash;
+            @Flash.canceled += instance.OnFlash;
+            @Nuke.started += instance.OnNuke;
+            @Nuke.performed += instance.OnNuke;
+            @Nuke.canceled += instance.OnNuke;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -1134,6 +1473,21 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @FocusMode.started -= instance.OnFocusMode;
             @FocusMode.performed -= instance.OnFocusMode;
             @FocusMode.canceled -= instance.OnFocusMode;
+            @InstantLaser.started -= instance.OnInstantLaser;
+            @InstantLaser.performed -= instance.OnInstantLaser;
+            @InstantLaser.canceled -= instance.OnInstantLaser;
+            @NextLevel.started -= instance.OnNextLevel;
+            @NextLevel.performed -= instance.OnNextLevel;
+            @NextLevel.canceled -= instance.OnNextLevel;
+            @GodMode.started -= instance.OnGodMode;
+            @GodMode.performed -= instance.OnGodMode;
+            @GodMode.canceled -= instance.OnGodMode;
+            @Flash.started -= instance.OnFlash;
+            @Flash.performed -= instance.OnFlash;
+            @Flash.canceled -= instance.OnFlash;
+            @Nuke.started -= instance.OnNuke;
+            @Nuke.performed -= instance.OnNuke;
+            @Nuke.canceled -= instance.OnNuke;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1321,6 +1675,11 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         void OnRollInput(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
         void OnFocusMode(InputAction.CallbackContext context);
+        void OnInstantLaser(InputAction.CallbackContext context);
+        void OnNextLevel(InputAction.CallbackContext context);
+        void OnGodMode(InputAction.CallbackContext context);
+        void OnFlash(InputAction.CallbackContext context);
+        void OnNuke(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

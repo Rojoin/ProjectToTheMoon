@@ -56,7 +56,7 @@ public class TutorialSecuence : MonoBehaviour
     /// </summary>
     private void CheckIfGameShouldEnd()
     {
-        if (!enemy.GetComponent<EnemyBaseStats>().IsAlive())
+        if (!enemy.GetComponent<EnemyHealth>().IsAlive())
         {
             Invoke(nameof(GoBackToMenu), timeUntilChangeScene);
         }

@@ -1,6 +1,6 @@
 ﻿public class PlayerHealth : HealthSystem
 {
-    protected override void Deativate()
+    public override void Deactivate()
     {
         onDeath.Invoke();
         transform.gameObject.SetActive(false);

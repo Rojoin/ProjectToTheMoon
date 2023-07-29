@@ -20,13 +20,13 @@ public class EnemyShooting : MonoBehaviour
     private float currentShootBulletColdown = 0.0f;
     private bool isActive = false;
     private bool isAlive;
-    private EnemyBaseStats _enemyBaseStats;
+    private EnemyHealth _enemyBaseStats;
 
 
 
     private void Awake()
     {
-        _enemyBaseStats = GetComponent<EnemyBaseStats>();
+        _enemyBaseStats = GetComponent<EnemyHealth>();
     }
 
     private void Start()

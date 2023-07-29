@@ -18,11 +18,11 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private bool hasEnded = false;
     [SerializeField] private float currentLoopTimes;
     private bool isAlive;
-    private EnemyBaseStats enemyBaseStats;
+    private EnemyHealth enemyBaseStats;
 
     private void Awake()
     {
-        enemyBaseStats = GetComponent<EnemyBaseStats>();
+        enemyBaseStats = GetComponent<EnemyHealth>();
     }
 
     private void Start()
@@ -94,7 +94,7 @@ public class EnemyMovement : MonoBehaviour
             return;
         isActive = false;
         hasEnded = true;
-        enemyBaseStats.DeactivateEnemy();
+        enemyBaseStats.Deactivate();
     }
     /// <summary>
     /// Set the Movement Active and moves to the default position
