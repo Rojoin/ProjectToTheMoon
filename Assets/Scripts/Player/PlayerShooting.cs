@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -11,10 +12,12 @@ public class PlayerShooting : MonoBehaviour, IFillable
 {
     [Header("Channels")]
     [SerializeField] private AskForBulletChannelSO askForBulletChannel;
+    [SerializeField] private AskForLaserChannel askForLaserChannel;
     [SerializeField] private BoolChannelSO OnFireChannel;
     [SerializeField] private FillUIChannelSO fillUIChannel;
     [Header("Configurations")]
     [SerializeField] private BulletConfiguration bulletConfiguration;
+    [SerializeField] private LaserConfiguration laserConfiguration;
     [SerializeField] private PlayerSettings player;
     [SerializeField] private Transform rayPosition;
     [SerializeField] private Transform[] shootingPoints;
@@ -58,9 +61,15 @@ public class PlayerShooting : MonoBehaviour, IFillable
     private void Awake()
     {
         shootingPoints = cannon.transform.Cast<Transform>().ToArray();
+      
+    }
+
+    private void OnEnable()
+    {
         OnFireChannel.Subscribe(OnFire);
     }
-    private void OnDestroy()
+
+    private void OnDisable()
     {
         OnFireChannel.Unsubscribe(OnFire);
     }
@@ -161,25 +170,13 @@ public class PlayerShooting : MonoBehaviour, IFillable
             askForBulletChannel.RaiseEvent(shootingPos, LayerMask.LayerToName(gameObject.layer), bulletConfiguration, transform.rotation);
         }
     }
-
     /// <summary>
     /// Instantiate the Shoot Ray Logic
     /// </summary>
     public void ShootRay()
     {
-        var newRay = Instantiate(rayObject, rayPosition.position, transform.rotation, transform);
         OnLaserShoot.Invoke();
-        newRay.transform.localPosition += beamLocalPosition;
-        if (CheckLaserHitBox(out var hit) && hit.collider.TryGetComponent<EnemyHealth>(out var enemyBaseStats) && enemyBaseStats.isActive)
-        {
-            Debug.Log("Hit");
-            enemyBaseStats.ReceiveDamage(laserDamage);
-            if (!enemyBaseStats.IsAlive())
-            {
-                enemyBaseStats.Deactivate();
-            }
-        }
-        Destroy(newRay, beamVisualLifeTime);
+        askForLaserChannel.RaiseEvent(rayPosition,LayerMask.LayerToName(gameObject.layer),laserConfiguration,transform,transform.rotation);
     }
     /// <summary>
     /// Check if Ray hit Something

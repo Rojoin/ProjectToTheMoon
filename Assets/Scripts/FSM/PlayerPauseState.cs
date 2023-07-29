@@ -11,6 +11,7 @@ public class PlayerPauseState : PlayerState
     }
     public override void OnExit()
     {
+        Debug.Log("Exiting Pause");
         playerHealthSystem.enabled = true;
         playerMovement.enabled = true;
         playerShooting.enabled = true;

@@ -38,6 +38,12 @@ public class PlayerMovement : MonoBehaviour
     private static readonly int IsRolling = Animator.StringToHash("IsRolling");
     private static readonly int MovementX = Animator.StringToHash("MovementX");
 
+    private void OnEnable()
+    {
+        OnFocusChannel.Subscribe(OnFocusMode);
+        OnRollChannel.Subscribe(OnRoll);
+        OnMoveChannel.Subscribe(OnMove);
+    }
 
     private void OnDisable()
     {
@@ -45,12 +51,10 @@ public class PlayerMovement : MonoBehaviour
         OnRollChannel.Unsubscribe(OnRoll);
         OnMoveChannel.Unsubscribe(OnMove);
     }
-
+    
     private void Start()
     {
-        OnFocusChannel.Subscribe(OnFocusMode);
-        OnRollChannel.Subscribe(OnRoll);
-        OnMoveChannel.Subscribe(OnMove);
+
         canRoll = true;
         isFocusActivate = false;
         xySpeed = player.xySpeed;

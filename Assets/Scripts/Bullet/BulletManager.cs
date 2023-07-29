@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class BulletManager : MonoBehaviour
 {
@@ -15,12 +16,14 @@ public class BulletManager : MonoBehaviour
     {
         askForBulletChannel.Subscribe(SpawnBullet);
     }
+
     public void OnDestroy()
     {
         askForBulletChannel.Unsubscribe(SpawnBullet);
     }
-    public void SpawnBullet(Transform pos, string layer,BulletConfiguration bulletConfig,Quaternion rotation)
+
+    private void SpawnBullet(Transform pos, string layer, BulletConfiguration bulletConfig, Quaternion rotation)
     {
-        factory.CreateBullet(bullet, pos, layer, bulletConfig, world, bulletParent,rotation);
+        factory.CreateBullet(bullet, pos, layer, bulletConfig, world, bulletParent, rotation);
     }
 }

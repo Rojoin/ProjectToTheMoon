@@ -315,7 +315,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: bd221cc90dce28d44aaff6859362e37c, type: 2}
         m_TargetAssemblyTypeName: VFXSO, Assembly-CSharp
-        m_MethodName: PlayBoomAnimation
+        m_MethodName: PlayImpactAnimation
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 594399030811221410}

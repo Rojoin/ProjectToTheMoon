@@ -222,10 +222,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   askForBulletChannel: {fileID: 11400000, guid: 8c811a9be8b34c6478075ea52e05dacb,
     type: 2}
+  askForLaserChannel: {fileID: 11400000, guid: 27b7b71c0a115bd45a0f521e136124c0, type: 2}
   OnFireChannel: {fileID: 11400000, guid: 92de2121c9a7bb94f8792590aa4970d2, type: 2}
   fillUIChannel: {fileID: 11400000, guid: 3302874b4a83eb3429f1a4124aece744, type: 2}
   bulletConfiguration: {fileID: 11400000, guid: d209097eb7d97ae4b9d886fa00ed50eb,
     type: 2}
+  laserConfiguration: {fileID: 11400000, guid: 731635b87c981454e8d072621ab08b24, type: 2}
   player: {fileID: 11400000, guid: e64f707767407f34587f76abbb141f4f, type: 2}
   rayPosition: {fileID: 2741220430394713321}
   shootingPoints: []
