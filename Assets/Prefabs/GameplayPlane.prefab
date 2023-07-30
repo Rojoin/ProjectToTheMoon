@@ -67,8 +67,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f2de386e36ff9940b05d60f616653c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerDeadChannel: {fileID: 11400000, guid: f87ea3618bccb7e419cf3265dba85557, type: 2}
+  musicChannel: {fileID: 11400000, guid: 4f61915f7c87517449a047b8021285de, type: 2}
+  sfxChannel: {fileID: 11400000, guid: 36a416f31be194345b1e50441a807297, type: 2}
+  scoreSound: {fileID: 8300000, guid: f82f9073df8ba604999a93a45720affd, type: 3}
+  onBossDeath: {fileID: 0}
+  scoreChannelSO: {fileID: 0}
   inGameMusic: {fileID: 0}
-  player: {fileID: 0}
   levelDolly: {fileID: 0}
   path: {fileID: 0}
   end: {fileID: 0}
@@ -203,6 +208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d43784e94119b614a86b29638b3ed80f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dollyCart: {fileID: 3936125703432919137}
   pattern:
   - {fileID: 3577082224536268000}
   - {fileID: 3577082223918122726}
@@ -225,7 +231,6 @@ MonoBehaviour:
   - 18
   - 20
   - 25
-  dollyCart: {fileID: 3936125703432919137}
 --- !u!1 &3936125704415154509
 GameObject:
   m_ObjectHideFlags: 0

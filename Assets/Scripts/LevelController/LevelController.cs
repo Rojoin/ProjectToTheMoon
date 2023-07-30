@@ -6,8 +6,7 @@ using UnityEngine;
 /// </summary>
 public class LevelController : MonoBehaviour
 {
-    //TODO: TP2 - Syntax - Fix declaration order
-    //TODO: TP2 - FSM
+
     /// <summary>
     /// Enum for the level state
     /// </summary>
@@ -20,6 +19,9 @@ public class LevelController : MonoBehaviour
     public static LevelState levelStatus { get; private set; }
 
     [SerializeField] private VoidChannelSO playerDeadChannel;
+    [SerializeField] private AudioChannelSO musicChannel;
+    [SerializeField] private AudioChannelSO sfxChannel;
+    [SerializeField] private AudioClip scoreSound;
     [SerializeField] private VoidChannelSO onBossDeath;
     [SerializeField] private IntChannelSO scoreChannelSO;
     [SerializeField] private AudioClip inGameMusic;
@@ -36,14 +38,11 @@ public class LevelController : MonoBehaviour
         onBossDeath.Subscribe(OnLevelCompleted);
         levelStatus = LevelState.playing;
         levelDolly = GetComponent<CinemachineDollyCart>();
-        score  =0;
+        score = 0;
     }
     private void Start()
     {
-        SoundManager.Instance.GetMusicSource().Stop();
-        var soundManager = SoundManager.Instance.GetMusicSource();
-        soundManager.clip = inGameMusic;
-        soundManager.Play();
+        musicChannel.RaiseEvent(inGameMusic,1.0f);
     }
     private void OnDisable()
     {
@@ -52,9 +51,9 @@ public class LevelController : MonoBehaviour
         onBossDeath.Unsubscribe(OnLevelCompleted);
     }
 
-    private static void OnScoreUp(int obj)
+    private void OnScoreUp(int obj)
     {
-        SoundManager.Instance.PlaySoundScore();
+        sfxChannel.RaiseEvent(scoreSound,1.0f);
         score += obj;
     }
 
@@ -62,7 +61,6 @@ public class LevelController : MonoBehaviour
     {
         LevelCompletionLogic();
     }
-    //TODO: TP2 - Syntax - Consistency in naming convention
     /// <summary>
     /// Checks if the Level should end because of loseTime or condition
     /// </summary>

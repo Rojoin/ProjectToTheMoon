@@ -8,6 +8,8 @@ using static UnityEngine.Screen;
 public class OptionsMenu : MonoBehaviour
 {
     private bool isFullScreen = false;
+    [SerializeField] private AudioChannelSO sfxChannel;
+    [SerializeField] private AudioClip buttonSound;
     private void Start()
     {
 
@@ -19,7 +21,7 @@ public class OptionsMenu : MonoBehaviour
     /// </summary>
     public void ChangeScreenMode()
     {
-        SoundManager.Instance.PlayButtonSound();
+        sfxChannel.RaiseEvent(buttonSound,1);
         isFullScreen = !isFullScreen;
         var fullsScreenMode = isFullScreen ? FullScreenMode.FullScreenWindow : FullScreenMode.Windowed;
         SetResolution(1920, 1080, fullsScreenMode);
@@ -28,16 +30,20 @@ public class OptionsMenu : MonoBehaviour
     /// Toggle SFX mute state
     /// </summary>
     public void ChangeSFX()
-    {
-        SoundManager.Instance.PlayButtonSound();
-        SoundManager.Instance.ToggleEffects();
+    {        
+        sfxChannel.RaiseEvent(buttonSound,1);
+        //TODO
+        //SoundManager.Instance.PlayButtonSound();
+        //SoundManager.Instance.ToggleEffects();
     }
     /// <summary>
     /// Toggle Music mute state
     /// </summary>
     public void ChangeMusic()
     {
-        SoundManager.Instance.PlayButtonSound();
-        SoundManager.Instance.ToggleMusic();
+        sfxChannel.RaiseEvent(buttonSound,1);
+        //TODO
+        //SoundManager.Instance.PlayButtonSound();
+        //SoundManager.Instance.ToggleEffects();
     }
 }

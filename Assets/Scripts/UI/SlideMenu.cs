@@ -7,6 +7,10 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class SlideMenu : MonoBehaviour
 {
+    [SerializeField] private AudioChannelSO sfxChannel;
+    [SerializeField] private VoidChannelSO goToNextLevel;
+    [SerializeField] private VoidChannelSO goToMenu;
+    [SerializeField] private VoidChannelSO resetLevel;
     [SerializeField] private TMPro.TextMeshProUGUI textMesh;
     [SerializeField] private GameObject currentbutton;
     [SerializeField] private PopUpText screen;
@@ -14,8 +18,10 @@ public class SlideMenu : MonoBehaviour
     [SerializeField] private CanvasGroup screenCanvas;
     private bool isActive;
     [SerializeField] private AudioClip openSlideSound;
-    [SerializeField] private  float timeUntilNextScene = 0.5f;
+    [SerializeField] private AudioClip buttonSound;
+    [SerializeField] private float timeUntilNextScene = 0.5f;
     [SerializeField] private string menuSceneName = "MainMenu";
+
     private void Awake()
     {
         screenCanvas = GetComponent<CanvasGroup>();
@@ -38,7 +44,8 @@ public class SlideMenu : MonoBehaviour
         {
             GetComponentInParent<UIController>().EndScreenSecuence();
         }
-        SoundManager.Instance.PlaySound(openSlideSound);
+
+        sfxChannel.RaiseEvent(openSlideSound, 1);
         isActive = true;
         EventSystem.current.GetComponent<EventSystem>().SetSelectedGameObject(currentbutton);
         screen.ActiveBox();
@@ -47,10 +54,12 @@ public class SlideMenu : MonoBehaviour
         {
             textMesh.text = "Score:" + playerScore;
         }
+
         screenCanvas.interactable = true;
         screenCanvas.alpha = 1;
         screenCanvas.blocksRaycasts = true;
     }
+
     /// <summary>
     /// Loads the menu scene after 0.5f, set Time.timeScale to 1 and resets the crosshair 
     /// </summary>
@@ -60,6 +69,7 @@ public class SlideMenu : MonoBehaviour
         screen.DeactivateBox();
         Invoke(nameof(LoadMenu), 0.5f);
     }
+
     /// <summary>
     /// Resets the current scene after 0.5f, set Time.timeScale to 1 and resets the crosshair 
     /// </summary>
@@ -69,6 +79,7 @@ public class SlideMenu : MonoBehaviour
         screen.DeactivateBox();
         Invoke(nameof(ResetScene), timeUntilNextScene);
     }
+
     /// <summary>
     /// Loads the next scene after 0.5f, set Time.timeScale to 1 and resets the crosshair 
     /// </summary>
@@ -78,38 +89,41 @@ public class SlideMenu : MonoBehaviour
         screen.DeactivateBox();
         Invoke(nameof(LoadNextScene), timeUntilNextScene);
     }
+
     /// <summary>
     /// Close this screen
     /// </summary>
     public void ReturnToGame()
     {
         isActive = false;
-        SoundManager.Instance.PlaySound(SoundManager.Instance.button);
+        sfxChannel.RaiseEvent(buttonSound, 1);
         screen.DeactivateBox();
     }
+
     /// <summary>
     /// Loads MenuScene
     /// </summary>
     private void LoadMenu()
     {
-        SoundManager.Instance.PlaySound(SoundManager.Instance.button);
-        SceneManager.LoadScene(menuSceneName);
+        sfxChannel.RaiseEvent(buttonSound, 1);
+        goToMenu.RaiseEvent();
     }
+
     /// <summary>
     /// Loads next Scene
     /// </summary>
     private void LoadNextScene()
     {
-        int nextScene = SceneManager.GetActiveScene().buildIndex + 1;
-        SoundManager.Instance.PlaySound(SoundManager.Instance.button);
-        SceneManager.LoadScene(nextScene);
+        sfxChannel.RaiseEvent(buttonSound, 1);
+        goToNextLevel.RaiseEvent();
     }
+
     /// <summary>
     /// Reset CurrentScene
     /// </summary>
     private void ResetScene()
     {
-        SoundManager.Instance.PlaySound(SoundManager.Instance.button);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        sfxChannel.RaiseEvent(buttonSound, 1);
+        resetLevel.RaiseEvent();
     }
 }

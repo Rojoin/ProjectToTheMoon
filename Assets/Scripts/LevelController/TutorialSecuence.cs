@@ -12,7 +12,7 @@ public class TutorialSecuence : MonoBehaviour
     [SerializeField] private List<PopUpText> popUpText;
     [SerializeField] private float maxTimeBetweenText;
     [SerializeField] private  float timeUntilChangeScene = 2f;
-    [SerializeField] private string scenesMainmenu = "Scenes/MainMenu";
+    [SerializeField] private VoidChannelSO goBackToMenu;
     private int currentTextCounter = -1;
     private int maxTextCounter = 0;
     private float currentTimeBetweenText;
@@ -66,6 +66,6 @@ public class TutorialSecuence : MonoBehaviour
     /// </summary>
     private void GoBackToMenu()
     {
-        SceneManager.LoadScene(scenesMainmenu);
+        goBackToMenu.RaiseEvent();
     }
 }

@@ -1,17 +1,22 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+
+
 /// <summary>
 /// Class for the MenuController
 /// </summary>
 public class MenuController : MonoBehaviour
 {
+    [SerializeField] private VoidChannelSO gotoFirstLevelChannel;
+    [SerializeField] private VoidChannelSO goToTutorialChannel;
+    [SerializeField] private AudioChannelSO musicChannel;
+    [SerializeField] private AudioChannelSO sfxChannel;
+    [SerializeField] private AudioClip button;
+    [SerializeField] private AudioClip mainMenuTheme;
     [SerializeField] private CanvasGroup MainMenu;
     [SerializeField] private CanvasGroup Options;
     [SerializeField] private CanvasGroup Credits;
 
-    [SerializeField] private string firstSceneName = "Level1";
-    [SerializeField] private string tutorialSceneName = "Tutorial";
 
     private CanvasGroup currentActiveCanvas;
 
@@ -22,9 +27,7 @@ public class MenuController : MonoBehaviour
         SetCanvasState(MainMenu, true);
         SetCanvasState(Options, false);
         SetCanvasState(Credits, false);
-        SoundManager.Instance.GetMusicSource().Stop();
-        SoundManager.Instance.GetMusicSource().clip = SoundManager.Instance.mainMenu;
-        SoundManager.Instance.GetMusicSource().Play();
+        musicChannel.RaiseEvent(mainMenuTheme, 1);
     }
 
     /// <summary>
@@ -32,17 +35,19 @@ public class MenuController : MonoBehaviour
     /// </summary>
     public void GoToGame()
     {
-        SceneManager.LoadScene(firstSceneName);
-        SoundManager.Instance.PlayButtonSound();
+        sfxChannel.RaiseEvent(button, 1);
+        gotoFirstLevelChannel.RaiseEvent();
     }
+
     /// <summary>
     /// Loads TutorialScene
     /// </summary>
     public void GoToTutorial()
-    {
-        SceneManager.LoadScene(tutorialSceneName);
-        SoundManager.Instance.PlayButtonSound();
+    { ;
+        goToTutorialChannel.RaiseEvent();
+        sfxChannel.RaiseEvent(button, 1);
     }
+
     /// <summary>
     /// Activate OptionsCanvas
     /// </summary>
@@ -51,8 +56,9 @@ public class MenuController : MonoBehaviour
         SetCanvasState(currentActiveCanvas, false);
         SetCanvasState(Options, true);
         currentActiveCanvas = Options;
-        SoundManager.Instance.PlayButtonSound();
+        sfxChannel.RaiseEvent(button, 1);
     }
+
     /// <summary>
     /// Activate CreditsCanvas
     /// </summary>
@@ -61,8 +67,9 @@ public class MenuController : MonoBehaviour
         SetCanvasState(currentActiveCanvas, false);
         SetCanvasState(Credits, true);
         currentActiveCanvas = Credits;
-        SoundManager.Instance.PlayButtonSound();
+        sfxChannel.RaiseEvent(button, 1);
     }
+
     /// <summary>
     /// Deactivate currentCanvas and goes Back To Menu
     /// </summary>
@@ -71,21 +78,23 @@ public class MenuController : MonoBehaviour
         SetCanvasState(currentActiveCanvas, false);
         SetCanvasState(MainMenu, true);
         currentActiveCanvas = MainMenu;
-        SoundManager.Instance.PlayButtonSound();
+        sfxChannel.RaiseEvent(button, 1);
     }
+
     /// <summary>
     /// Exits the game
     /// If activate in Unity Editor exits playmode
     /// </summary>
     public void ExitAplication()
     {
-        SoundManager.Instance.PlaySound(SoundManager.Instance.button);
+        sfxChannel.RaiseEvent(button, 1);
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #else
    	    Application.Quit();
 #endif
     }
+
     /// <summary>
     /// Set the canvas interactable, block raycas and alpha according to the bool
     /// </summary>

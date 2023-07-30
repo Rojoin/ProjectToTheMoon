@@ -4,11 +4,16 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
+  - sfxChannel: {fileID: 11400000, guid: 36a416f31be194345b1e50441a807297, type: 2}
+  - goToNextLevel: {fileID: 11400000, guid: 28b29d4785cfc9c47b47080a7dc931ae, type: 2}
+  - goToMenu: {fileID: 11400000, guid: 429e059670edae8498cd386b86eb7631, type: 2}
+  - resetLevel: {fileID: 11400000, guid: f1359d4e0b3751141acd8fd1a479b3e8, type: 2}
   - textMesh: {instanceID: 0}
   - currentbutton: {instanceID: 0}
   - screen: {instanceID: 0}
   - screenCanvas: {instanceID: 0}
   - openSlideSound: {fileID: 8300000, guid: 0645b1bdc86237944a04b1ba136b9548, type: 3}
+  - buttonSound: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 3463420292624133773}
   - component: {fileID: 9060738690195228362}
   - component: {fileID: 2949530594770078872}
+  - component: {fileID: 8849345844641242215}
   m_Layer: 0
-  m_Name: BulletManager
+  m_Name: Managers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -86,3 +87,26 @@ MonoBehaviour:
   turretEnemy: {fileID: 0}
   bossEnemy: {fileID: 0}
   holder: {fileID: 0}
+--- !u!114 &8849345844641242215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3463420292624133770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9488e922d588eda498514fcd918925e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextSceneChannel: {fileID: 11400000, guid: 303106f16d4cc5849adea9fa548ed8ae, type: 2}
+  goBackToMenuChannel: {fileID: 11400000, guid: 429e059670edae8498cd386b86eb7631,
+    type: 2}
+  goToFirstLevelChannel: {fileID: 11400000, guid: d7b9b5c5187142d4e8ac2cfb371c3d59,
+    type: 2}
+  goToTutorialChannel: {fileID: 11400000, guid: 61a672cb6588e6e41bd6f9f765bba036,
+    type: 2}
+  resetSceneChannel: {fileID: 11400000, guid: f1359d4e0b3751141acd8fd1a479b3e8, type: 2}
+  firstSceneName: Level1
+  tutorialSceneName: Tutorial
+  menuSceneName: MainMenu
