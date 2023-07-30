@@ -232,8 +232,6 @@ MonoBehaviour:
   rayPosition: {fileID: 2741220430394713321}
   shootingPoints: []
   cannon: {fileID: 6168236011001517408}
-  rayObject: {fileID: 2804110858878954457, guid: 845cc55330f813348b45e1c436c44cce,
-    type: 3}
   OnBulletShoot:
     m_PersistentCalls:
       m_Calls:
@@ -303,10 +301,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  raycastDistance: 80
-  beamLocalPosition: {x: 0, y: 0, z: 45}
-  beamVisualLifeTime: 0.2
-  laserDamage: 500
   specialBeanCooldown: 0
 --- !u!65 &9065621869916247657
 BoxCollider:
@@ -397,7 +391,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 11400000, guid: 019fb19fee50c544da5aeba303d7e563, type: 2}
         m_TargetAssemblyTypeName: VFXSO, Assembly-CSharp
-        m_MethodName: PlayImpactAnimation
+        m_MethodName: PlayBoomAnimation
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 4561208014810438878}
@@ -452,6 +446,7 @@ MonoBehaviour:
   OnNextLevel: {fileID: 11400000, guid: 28b29d4785cfc9c47b47080a7dc931ae, type: 2}
   OnGodMode: {fileID: 11400000, guid: 7aeb5ce4a1190af488d87b48c2c49583, type: 2}
   OnNuke: {fileID: 11400000, guid: 4e9c5b990566d1d4faf8876637638c6b, type: 2}
+  GoNextLevel: {fileID: 11400000, guid: 303106f16d4cc5849adea9fa548ed8ae, type: 2}
   OnCheatActivated: {fileID: 11400000, guid: 986d1528413cdc54b8383c17f87ee965, type: 2}
   playerHealth: {fileID: 0}
   playerMovement: {fileID: 0}

@@ -10,7 +10,6 @@ using UnityEngine.Serialization;
 public class EnemyMovementPattern : MonoBehaviour
 {
     public EnemyManager enemyFactory;
-    [SerializeField] private EnemyMovement[] enemyTypes;
     [SerializeField] private Transform enemyHolder;
     [SerializeField] private int defaultEnemyCount = 0;
     [SerializeField] private int specialEnemyCount = 0;
@@ -78,13 +77,15 @@ public class EnemyMovementPattern : MonoBehaviour
         for (int i = 0; i < defaultEnemyCount; i++)
         {
             enemyFactory.SpawnEnemy(EnemyType.Basic,enemyHolder, out var aux);
-            enemysToSpawn.Add(aux);
+            var enemyToAdd = aux.GetComponent<EnemyMovement>();
+            enemysToSpawn.Add(enemyToAdd);
         }
 
         for (int i = 0; i < specialEnemyCount; i++)
         {
            enemyFactory.SpawnEnemy(EnemyType.Tank,enemyHolder, out var aux);
-           enemysToSpawn.Add(aux);
+           var enemyToAdd = aux.GetComponent<EnemyMovement>();
+           enemysToSpawn.Add(enemyToAdd);
         }
 
         foreach (var enemy in enemysToSpawn)

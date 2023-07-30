@@ -56,17 +56,18 @@ public class PlayerShooting : MonoBehaviour, IFillable
     private void Awake()
     {
         shootingPoints = cannon.transform.Cast<Transform>().ToArray();
-      
     }
 
     private void OnEnable()
     {
         OnFireChannel.Subscribe(OnFire);
+        OnFire(false);
     }
 
     private void OnDisable()
     {
         OnFireChannel.Unsubscribe(OnFire);
+        OnFire(false);
     }
 
     private void Start()

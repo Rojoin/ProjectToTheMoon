@@ -1,4 +1,7 @@
+using System;
 using System.Collections;
+using System.Threading;
+using Unity.VisualScripting;
 using UnityEngine;
 
 /// <summary>
@@ -6,20 +9,30 @@ using UnityEngine;
 /// </summary>
 public class Bullet : MonoBehaviour
 {
+    private Action<Bullet> killAction;
     public float Velocity { get; set; } = 50f;
     public float Damage { get; set; } = 30f;
-    public static float maxAliveTime = 3f;
+    public static float maxAliveTime = 7f;
     public DirectionHandler DirHandler { get; set; }
     private Transform world;
     private Vector3 direction;
-
-    private IEnumerator Start()
+    
+    public void Init(Action<Bullet> onKill)
     {
-        Destroy(gameObject, maxAliveTime);
+        killAction = onKill;
+    }
+    private IEnumerator OnStart()
+    {
+        float timer = 0;
         while (gameObject.activeSelf)
         {
+            timer += Time.deltaTime;
             direction = DirHandler.GetDirection(transform, world);
             transform.localPosition += Time.deltaTime * Velocity * direction;
+            if (timer > maxAliveTime)
+            {
+                killAction(this);
+            }
             yield return null;
         }
     }
@@ -49,5 +62,9 @@ public class Bullet : MonoBehaviour
     public void DestroyGameObject()
     {
         Destroy(this.gameObject);
+    }
+    public void StartBullet()
+    {
+        StartCoroutine(OnStart());
     }
 }

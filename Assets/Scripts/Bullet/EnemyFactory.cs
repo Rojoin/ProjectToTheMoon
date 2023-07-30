@@ -6,5 +6,9 @@ public class EnemyFactory
     {
         var aux = GameObject.Instantiate(enemy,holder);
         return aux;
+    } 
+    public void Configure(ref EnemyHealth enemy,Transform holder)
+    {
+        enemy.transform.SetParent(holder);
     }
 }

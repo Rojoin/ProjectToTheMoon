@@ -330,6 +330,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerDeadChannel: {fileID: 0}
+  musicChannel: {fileID: 0}
+  sfxChannel: {fileID: 0}
+  scoreSound: {fileID: 0}
   onBossDeath: {fileID: 0}
   scoreChannelSO: {fileID: 0}
   inGameMusic: {fileID: 0}
@@ -1681,11 +1684,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd52b94229fd944408621bfde4928861, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sfxChannel: {fileID: 0}
+  goToNextLevel: {fileID: 0}
+  goToMenu: {fileID: 0}
+  resetLevel: {fileID: 0}
   textMesh: {fileID: 400222073}
   currentbutton: {fileID: 606475709}
   screen: {fileID: 1072634935}
   screenCanvas: {fileID: 737176971}
   openSlideSound: {fileID: 8300000, guid: 0645b1bdc86237944a04b1ba136b9548, type: 3}
+  buttonSound: {fileID: 0}
   timeUntilNextScene: 0.5
   menuSceneName: MainMenu
 --- !u!225 &737176971
@@ -3404,11 +3412,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd52b94229fd944408621bfde4928861, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sfxChannel: {fileID: 0}
+  goToNextLevel: {fileID: 0}
+  goToMenu: {fileID: 0}
+  resetLevel: {fileID: 0}
   textMesh: {fileID: 971185493}
   currentbutton: {fileID: 157805614}
   screen: {fileID: 2003595874}
   screenCanvas: {fileID: 1433663245}
   openSlideSound: {fileID: 8300000, guid: 0645b1bdc86237944a04b1ba136b9548, type: 3}
+  buttonSound: {fileID: 0}
   timeUntilNextScene: 0.5
   menuSceneName: MainMenu
 --- !u!222 &1433663247
@@ -4008,11 +4021,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd52b94229fd944408621bfde4928861, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sfxChannel: {fileID: 0}
+  goToNextLevel: {fileID: 0}
+  goToMenu: {fileID: 0}
+  resetLevel: {fileID: 0}
   textMesh: {fileID: 1339986253}
   currentbutton: {fileID: 1642939333}
   screen: {fileID: 1358949856}
   screenCanvas: {fileID: 1535606642}
   openSlideSound: {fileID: 8300000, guid: 0645b1bdc86237944a04b1ba136b9548, type: 3}
+  buttonSound: {fileID: 0}
   timeUntilNextScene: 0.5
   menuSceneName: MainMenu
 --- !u!225 &1535606642

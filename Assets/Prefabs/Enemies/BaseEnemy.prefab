@@ -100,15 +100,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 614500283370495704}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9fc2c79b77d079949956be2bf5435f6a, type: 3}
+  m_Script: {fileID: 11500000, guid: b93215db7f094fa6b70d91132e00f1e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingPoints: {fileID: 5543777277399325048}
+  attackCooldown: 0.2
   askForBulletChannel: {fileID: 11400000, guid: 8c811a9be8b34c6478075ea52e05dacb,
     type: 2}
   bulletConfiguration: {fileID: 11400000, guid: 45758ca129c6c264980642ef47fc1e23,
     type: 2}
-  shootingPoints: {fileID: 5543777277399325048}
-  shootBulletCooldown: 0.8
 --- !u!114 &1529883436174389869
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,27 +1,24 @@
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 
 /// <summary>
 /// Class for the EnemyShooting
 /// </summary>
-public class EnemyShooting : MonoBehaviour
+public abstract class EnemyShooting : MonoBehaviour
 {
-    
-    [Header("ScriptableObjects")]
-    [SerializeField] private AskForBulletChannelSO askForBulletChannel;
-    [SerializeField] private BulletConfiguration bulletConfiguration;
     [Header("Transforms")]
     [SerializeField] private Transform shootingPoints;
     private Transform[] bulletPoint;
 
+    [FormerlySerializedAs("shootBulletCooldown")]
     [Header("Cooldowns Presets")]
-    [SerializeField] private float shootBulletCooldown = 0.2f;
-    private float currentShootBulletColdown = 0.0f;
-    private bool isActive = false;
-    private bool isAlive;
-    private EnemyHealth _enemyBaseStats;
-
+    [SerializeField] protected float attackCooldown = 0.2f;
+    private float currentAttackTimer = 0.0f;
+    protected bool isActive = false;
+    protected bool isAlive;
+    protected EnemyHealth _enemyBaseStats;
 
 
     private void Awake()
@@ -40,37 +37,34 @@ public class EnemyShooting : MonoBehaviour
     {
         if (LevelController.levelStatus != LevelController.LevelState.playing) return;
         isAlive = _enemyBaseStats.IsAlive();
-        ShootBulletAttack();
+        ShootLogic();
     }
+
     /// <summary>
     /// Logic for shooting bullets according to the timer
     /// One bullet for each bulletPoint
     /// Bullets spawn lookit at the player
     /// </summary>
-    private void ShootBulletAttack()
+    private void ShootLogic()
     {
         if (isActive && isAlive)
         {
-            currentShootBulletColdown += Time.deltaTime;
-            if (currentShootBulletColdown > shootBulletCooldown)
+            currentAttackTimer += Time.deltaTime;
+            if (currentAttackTimer > attackCooldown)
             {
-                foreach (var shoot in bulletPoint)
+                foreach (var shootingPoint in bulletPoint)
                 {
-                    ShootBullet(shoot);
+                    Shoot(shootingPoint);
                 }
 
-                currentShootBulletColdown -= shootBulletCooldown;
+                currentAttackTimer -= attackCooldown;
             }
         }
     }
 
     /// <summary>
-    /// Intantiate a Bullet in the <paramref name="shooting"/> position
+    /// Intantiate a attack in the <paramref name="shooting"/> position
     /// </summary>
-    /// <param name="shooting">Transform from where the bullet spawn</param>
-    private void ShootBullet(Transform shooting)
-    {
-        askForBulletChannel.RaiseEvent(shooting,LayerMask.LayerToName(gameObject.layer),bulletConfiguration,shooting.rotation);
-    }
- 
+    /// <param name="shooting">Transform from where the attack spawn</param>
+    protected abstract void Shoot(Transform shooting);
 }

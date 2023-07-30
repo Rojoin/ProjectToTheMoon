@@ -958,6 +958,18 @@ PrefabInstance:
       propertyPath: holder
       value: 
       objectReference: {fileID: 1919810104}
+    - target: {fileID: 2949530594770078872, guid: 16b4f9f74096cbc4c8ad4669fd04354f,
+        type: 3}
+      propertyPath: tankEnemy
+      value: 
+      objectReference: {fileID: 7667291150704976225, guid: 9ad32bab8a538334181fa379da623648,
+        type: 3}
+    - target: {fileID: 2949530594770078872, guid: 16b4f9f74096cbc4c8ad4669fd04354f,
+        type: 3}
+      propertyPath: laserEnemy
+      value: 
+      objectReference: {fileID: 7667291150704976225, guid: f505cfb3b2c768740acb9e7e1ca6f671,
+        type: 3}
     - target: {fileID: 3463420292624133770, guid: 16b4f9f74096cbc4c8ad4669fd04354f,
         type: 3}
       propertyPath: m_Name

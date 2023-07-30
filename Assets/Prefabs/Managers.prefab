@@ -51,7 +51,8 @@ MonoBehaviour:
     type: 2}
   bulletParent: {fileID: 0}
   world: {fileID: 0}
-  bullet: {fileID: 2672014167870166261, guid: f68c23854dd0056458ab89c9fca7be22, type: 3}
+  bulletPrefab: {fileID: 2672014167870166261, guid: f68c23854dd0056458ab89c9fca7be22,
+    type: 3}
 --- !u!114 &9060738690195228362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79,13 +80,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   askForEnemyChannel: {fileID: 11400000, guid: 0dc56a9670605ee46a20d60754f99610, type: 2}
-  basicEnemy: {fileID: 7024730850347484120, guid: c3cf70a0c81196946a2cc1e3dda57c69,
+  basicEnemy: {fileID: 1529883436174389869, guid: c3cf70a0c81196946a2cc1e3dda57c69,
     type: 3}
-  tankEnemy: {fileID: 7667291150704976225, guid: 9ad32bab8a538334181fa379da623648,
+  tankEnemy: {fileID: 6833323196664119075, guid: 9ad32bab8a538334181fa379da623648,
     type: 3}
-  laserEnemy: {fileID: 0}
-  turretEnemy: {fileID: 0}
-  bossEnemy: {fileID: 0}
+  laserEnemy: {fileID: 6833323196664119075, guid: f505cfb3b2c768740acb9e7e1ca6f671,
+    type: 3}
+  turretEnemy: {fileID: 6833323196664119075, guid: c7dfc33bf30b8664cb532902d105a22a,
+    type: 3}
+  bossEnemy: {fileID: 3569911972068193591, guid: 461b7daae25d97642b56472caaf6c7e6,
+    type: 3}
   holder: {fileID: 0}
 --- !u!114 &8849345844641242215
 MonoBehaviour:

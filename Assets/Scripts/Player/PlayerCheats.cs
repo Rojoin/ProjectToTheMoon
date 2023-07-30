@@ -8,6 +8,7 @@ public class PlayerCheats : MonoBehaviour
     [SerializeField] private VoidChannelSO OnNextLevel;
     [SerializeField] private VoidChannelSO OnGodMode;
     [SerializeField] private VoidChannelSO OnNuke;
+    [SerializeField] private VoidChannelSO GoNextLevel;
     [SerializeField] private StringChannelSO OnCheatActivated;
     [Header("References")]
     [SerializeField] private PlayerHealth playerHealth;
@@ -73,6 +74,7 @@ public class PlayerCheats : MonoBehaviour
     private void NextLevel()
     {
         OnCheatActivated.RaiseEvent(cheatText + nameof(NextLevel));
+        GoNextLevel.RaiseEvent();
     }
 
     private void Flash()
