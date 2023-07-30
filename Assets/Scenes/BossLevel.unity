@@ -573,26 +573,6 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
---- !u!1 &520770213 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3463420292624133770, guid: 16b4f9f74096cbc4c8ad4669fd04354f,
-    type: 3}
-  m_PrefabInstance: {fileID: 3463420292536011081}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &520770216
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 520770213}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a224b560a9345ceb0e753124d69f8cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  askForLaserChannel: {fileID: 11400000, guid: 27b7b71c0a115bd45a0f521e136124c0, type: 2}
-  laser: {fileID: 3874117131639135525, guid: 5a34c36fc8ae66b4cbd68436338bddcd, type: 3}
 --- !u!114 &645681229 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 509820639163121033, guid: ec0b910ed8e2e7c46b43afde5ed9084d,

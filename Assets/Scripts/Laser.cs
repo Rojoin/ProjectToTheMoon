@@ -34,6 +34,11 @@ public class Laser : MonoBehaviour
             yield return null;
         }
     }
+    /// <summary>
+    /// Check if Ray hit Something
+    /// </summary>
+    /// <param name="hit"></param>
+    /// <returns></returns>
     private bool CheckLaserHitBox(out RaycastHit hit)
     {
         var transform1 = transform;

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 
 /// <summary>
@@ -8,6 +9,7 @@ using UnityEngine;
 /// </summary>
 public class EnemyMovementPattern : MonoBehaviour
 {
+    public EnemyManager enemyFactory;
     [SerializeField] private EnemyMovement[] enemyTypes;
     [SerializeField] private Transform enemyHolder;
     [SerializeField] private int defaultEnemyCount = 0;
@@ -22,7 +24,7 @@ public class EnemyMovementPattern : MonoBehaviour
     [SerializeField] private int endLoop;
     [SerializeField] private float spawnDelay = 0.5f;
     [SerializeField] private int enemyCounter;
-    private List<EnemyMovement> enemysToSpawn;
+    public List<EnemyMovement> enemysToSpawn;
     private bool isActive = false;
     private int maxEnemysInScene;
     private float spawnTimer = 0.0f;
@@ -30,13 +32,14 @@ public class EnemyMovementPattern : MonoBehaviour
     private void OnValidate()
     {
         points = transform.Cast<Transform>().ToArray();
-
     }
+
     private void Start()
     {
         if (isActive)
             StartPattern();
     }
+
     /// <summary>
     /// Initialize enemy Pattern
     /// </summary>
@@ -49,6 +52,7 @@ public class EnemyMovementPattern : MonoBehaviour
         maxEnemysInScene = enemysToSpawn.Count;
         isActive = true;
     }
+
     /// <summary>
     /// Randomize enemies from list
     /// </summary>
@@ -62,6 +66,7 @@ public class EnemyMovementPattern : MonoBehaviour
             enemysToSpawn[randomIndex] = temp;
         }
     }
+
     /// <summary>
     /// Creates enemies according to type and sets their properties
     /// </summary>
@@ -72,14 +77,14 @@ public class EnemyMovementPattern : MonoBehaviour
 
         for (int i = 0; i < defaultEnemyCount; i++)
         {
-            var aux = Instantiate(enemyTypes[0], enemyHolder);
+            enemyFactory.SpawnEnemy(EnemyType.Basic,enemyHolder, out var aux);
             enemysToSpawn.Add(aux);
         }
 
         for (int i = 0; i < specialEnemyCount; i++)
         {
-            var aux = Instantiate(enemyTypes[1], enemyHolder);
-            enemysToSpawn.Add(aux);
+           enemyFactory.SpawnEnemy(EnemyType.Tank,enemyHolder, out var aux);
+           enemysToSpawn.Add(aux);
         }
 
         foreach (var enemy in enemysToSpawn)
@@ -92,6 +97,7 @@ public class EnemyMovementPattern : MonoBehaviour
     {
         SpawnEnemies();
     }
+
     /// <summary>
     /// Activate Enemies in scene according to spawnTimer and enemy count
     /// </summary>
@@ -119,6 +125,7 @@ public class EnemyMovementPattern : MonoBehaviour
             Gizmos.DrawLine(t.position, next.position);
         }
     }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = new Color(color.r, color.g, color.b, 0.1f);

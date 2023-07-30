@@ -22,7 +22,6 @@ public class PlayerShooting : MonoBehaviour, IFillable
     [SerializeField] private Transform rayPosition;
     [SerializeField] private Transform[] shootingPoints;
     [SerializeField] private Transform cannon;
-    [SerializeField] private GameObject rayObject;
 
     [Header("UnityEvents")]
     public UnityEvent OnBulletShoot;
@@ -30,10 +29,6 @@ public class PlayerShooting : MonoBehaviour, IFillable
     public UnityEvent OnPrepareLaser;
 
     [Header("Variables")]
-    public int raycastDistance;
-    [SerializeField] private Vector3 beamLocalPosition = new(0, 0, 45f);
-    [SerializeField] private float beamVisualLifeTime = 0.2f;
-    [SerializeField] private float laserDamage = 400f;
     private bool isPressingButton;
     private bool singleBulletShoot;
     [Header("Cooldowns Presets")]
@@ -178,29 +173,7 @@ public class PlayerShooting : MonoBehaviour, IFillable
         OnLaserShoot.Invoke();
         askForLaserChannel.RaiseEvent(rayPosition,LayerMask.LayerToName(gameObject.layer),laserConfiguration,transform,transform.rotation);
     }
-    /// <summary>
-    /// Check if Ray hit Something
-    /// </summary>
-    /// <param name="hit"></param>
-    /// <returns></returns>
-    private bool CheckLaserHitBox(out RaycastHit hit)
-    {
-        return Physics.Raycast(rayPosition.position, rayPosition.forward, out hit, raycastDistance) ||
-               Physics.Raycast(rayPosition.position + Vector3.up / 2, rayPosition.forward, out hit, raycastDistance) ||
-               Physics.Raycast(rayPosition.position + Vector3.down / 2, rayPosition.forward, out hit, raycastDistance) ||
-               Physics.Raycast(rayPosition.position + Vector3.right / 2, rayPosition.forward, out hit, raycastDistance) ||
-               Physics.Raycast(rayPosition.position + Vector3.left / 2, rayPosition.forward, out hit, raycastDistance);
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawRay(rayPosition.position, rayPosition.forward * raycastDistance);
-        Gizmos.DrawRay(rayPosition.position + Vector3.up / 2, rayPosition.forward * raycastDistance);
-        Gizmos.DrawRay(rayPosition.position + Vector3.down / 2, rayPosition.forward * raycastDistance);
-        Gizmos.DrawRay(rayPosition.position + Vector3.right / 2, rayPosition.forward * raycastDistance);
-        Gizmos.DrawRay(rayPosition.position + Vector3.left / 2, rayPosition.forward * raycastDistance);
-    }
+  
     /// <summary>
     /// Gets the SpecialBeanCooldown max Cooldown
     /// </summary>

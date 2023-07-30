@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3463420292624133772}
   - component: {fileID: 3463420292624133773}
+  - component: {fileID: 9060738690195228362}
+  - component: {fileID: 2949530594770078872}
   m_Layer: 0
   m_Name: BulletManager
   m_TagString: Untagged
@@ -49,3 +51,38 @@ MonoBehaviour:
   bulletParent: {fileID: 0}
   world: {fileID: 0}
   bullet: {fileID: 2672014167870166261, guid: f68c23854dd0056458ab89c9fca7be22, type: 3}
+--- !u!114 &9060738690195228362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3463420292624133770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a224b560a9345ceb0e753124d69f8cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  askForLaserChannel: {fileID: 11400000, guid: 27b7b71c0a115bd45a0f521e136124c0, type: 2}
+  laser: {fileID: 3874117131639135525, guid: 5a34c36fc8ae66b4cbd68436338bddcd, type: 3}
+--- !u!114 &2949530594770078872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3463420292624133770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37691ca31c9b49a3b8a061568b529c88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  askForEnemyChannel: {fileID: 11400000, guid: 0dc56a9670605ee46a20d60754f99610, type: 2}
+  basicEnemy: {fileID: 7024730850347484120, guid: c3cf70a0c81196946a2cc1e3dda57c69,
+    type: 3}
+  tankEnemy: {fileID: 7667291150704976225, guid: 9ad32bab8a538334181fa379da623648,
+    type: 3}
+  laserEnemy: {fileID: 0}
+  turretEnemy: {fileID: 0}
+  bossEnemy: {fileID: 0}
+  holder: {fileID: 0}
