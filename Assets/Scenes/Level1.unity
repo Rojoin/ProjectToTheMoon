@@ -966,17 +966,17 @@ PrefabInstance:
     - target: {fileID: 3463420292624133772, guid: 16b4f9f74096cbc4c8ad4669fd04354f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.03549
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3463420292624133772, guid: 16b4f9f74096cbc4c8ad4669fd04354f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 66.50072
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3463420292624133772, guid: 16b4f9f74096cbc4c8ad4669fd04354f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -35.434376
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3463420292624133772, guid: 16b4f9f74096cbc4c8ad4669fd04354f,
         type: 3}
@@ -2123,6 +2123,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1978933091}
   m_CullTransparentMesh: 1
+--- !u!1 &2061164291 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3463420292624133770, guid: 16b4f9f74096cbc4c8ad4669fd04354f,
+    type: 3}
+  m_PrefabInstance: {fileID: 483507273}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2061164292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2061164291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37691ca31c9b49a3b8a061568b529c88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  askForEnemyChannel: {fileID: 11400000, guid: 0dc56a9670605ee46a20d60754f99610, type: 2}
+  basicEnemy: {fileID: 7024730850347484120, guid: c3cf70a0c81196946a2cc1e3dda57c69,
+    type: 3}
+  tankEnemy: {fileID: 7667291150704976225, guid: 9ad32bab8a538334181fa379da623648,
+    type: 3}
+  laserEnemy: {fileID: 0}
+  turretEnemy: {fileID: 0}
+  bossEnemy: {fileID: 0}
+  holder: {fileID: 1919810104}
 --- !u!4 &2076982228 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3936125704485979060, guid: e32d506b9cdf0024892e291f9fec0819,
@@ -4447,6 +4474,52 @@ PrefabInstance:
       propertyPath: maxHealthPoints
       value: 500
       objectReference: {fileID: 0}
+    - target: {fileID: 2243982181952945088, guid: e32d506b9cdf0024892e291f9fec0819,
+        type: 3}
+      propertyPath: enemyFactory
+      value: 
+      objectReference: {fileID: 2061164292}
+    - target: {fileID: 2243982182205343571, guid: e32d506b9cdf0024892e291f9fec0819,
+        type: 3}
+      propertyPath: enemyFactory
+      value: 
+      objectReference: {fileID: 2061164292}
+    - target: {fileID: 2243982182720510555, guid: e32d506b9cdf0024892e291f9fec0819,
+        type: 3}
+      propertyPath: enemyFactory
+      value: 
+      objectReference: {fileID: 2061164292}
+    - target: {fileID: 2875301611858804187, guid: e32d506b9cdf0024892e291f9fec0819,
+        type: 3}
+      propertyPath: enemyFactory
+      value: 
+      objectReference: {fileID: 2061164292}
+    - target: {fileID: 3577082223918122726, guid: e32d506b9cdf0024892e291f9fec0819,
+        type: 3}
+      propertyPath: enemyFactory
+      value: 
+      objectReference: {fileID: 2061164292}
+    - target: {fileID: 3577082224536268000, guid: e32d506b9cdf0024892e291f9fec0819,
+        type: 3}
+      propertyPath: enemyChannel
+      value: 
+      objectReference: {fileID: 11400000, guid: 0dc56a9670605ee46a20d60754f99610,
+        type: 2}
+    - target: {fileID: 3577082224536268000, guid: e32d506b9cdf0024892e291f9fec0819,
+        type: 3}
+      propertyPath: enemyFactory
+      value: 
+      objectReference: {fileID: 2061164292}
+    - target: {fileID: 3577082225032504296, guid: e32d506b9cdf0024892e291f9fec0819,
+        type: 3}
+      propertyPath: enemyFactory
+      value: 
+      objectReference: {fileID: 2061164292}
+    - target: {fileID: 3577082225446064157, guid: e32d506b9cdf0024892e291f9fec0819,
+        type: 3}
+      propertyPath: enemyFactory
+      value: 
+      objectReference: {fileID: 2061164292}
     - target: {fileID: 3936125703397187846, guid: e32d506b9cdf0024892e291f9fec0819,
         type: 3}
       propertyPath: m_Actions
@@ -4563,6 +4636,16 @@ PrefabInstance:
       propertyPath: onHit.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: PlayerSFX, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 5458576924705781723, guid: e32d506b9cdf0024892e291f9fec0819,
+        type: 3}
+      propertyPath: enemyFactory
+      value: 
+      objectReference: {fileID: 2061164292}
+    - target: {fileID: 5458576925339469418, guid: e32d506b9cdf0024892e291f9fec0819,
+        type: 3}
+      propertyPath: enemyFactory
+      value: 
+      objectReference: {fileID: 2061164292}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e32d506b9cdf0024892e291f9fec0819, type: 3}
 --- !u!222 &4022639387678077250
