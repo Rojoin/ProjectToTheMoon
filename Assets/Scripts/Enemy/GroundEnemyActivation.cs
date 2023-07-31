@@ -3,8 +3,8 @@
 public class GroundEnemyActivation : MonoBehaviour
 {
     [SerializeField] private Transform[] enemyPositions;
-    [SerializeField]private EnemyManager factory;
-    [SerializeField]private Transform world;
+    [SerializeField] private EnemyManager factory;
+    [SerializeField] private Transform world;
     
     public void ActivateEnemies()
     {

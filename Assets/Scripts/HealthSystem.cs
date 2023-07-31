@@ -53,19 +53,5 @@ public abstract class HealthSystem : MonoBehaviour, IFillable
     {
         return maxHealthPoints;
     }
-
-   //private void OnTriggerEnter(Collider other)
-   //{
-   //    if (other.TryGetComponent<Bullet>(out var bullet))
-   //    {
-   //        onHit.Invoke();
-   //        ReceiveDamage(bullet.Damage);
-   //        bullet.DestroyGameObject();
-   //    }
-
-   //    if (!IsAlive())
-   //    {
-   //        Deactivate();
-   //    }
-   //}
+    
 }

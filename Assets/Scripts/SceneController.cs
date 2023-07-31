@@ -46,12 +46,12 @@ public class SceneController : MonoBehaviour
     } 
     private void ResetScene()
     {
-        SceneManager.LoadScene(menuSceneName);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     private void GoToNextLevel()
     {
-        if (SceneManager.GetActiveScene().buildIndex == SceneManager.sceneCount - 1)
+        if (SceneManager.GetActiveScene().buildIndex == SceneManager.sceneCountInBuildSettings-1)
         {
             SceneManager.LoadScene(menuSceneName);
         }

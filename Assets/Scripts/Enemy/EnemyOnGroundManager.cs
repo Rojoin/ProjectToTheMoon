@@ -1,6 +1,4 @@
-﻿using System;
-using Cinemachine;
-using TreeEditor;
+﻿using Cinemachine;
 using UnityEngine;
 
 public class EnemyOnGroundManager : MonoBehaviour

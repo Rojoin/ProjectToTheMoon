@@ -11,10 +11,8 @@ public class SlideMenu : MonoBehaviour
     [SerializeField] private VoidChannelSO goToNextLevel;
     [SerializeField] private VoidChannelSO goToMenu;
     [SerializeField] private VoidChannelSO resetLevel;
-    [SerializeField] private TMPro.TextMeshProUGUI textMesh;
     [SerializeField] private GameObject currentbutton;
     [SerializeField] private PopUpText screen;
-    private int playerScore;
     [SerializeField] private CanvasGroup screenCanvas;
     private bool isActive;
     [SerializeField] private AudioClip openSlideSound;
@@ -49,12 +47,7 @@ public class SlideMenu : MonoBehaviour
         isActive = true;
         EventSystem.current.GetComponent<EventSystem>().SetSelectedGameObject(currentbutton);
         screen.ActiveBox();
-        playerScore = LevelController.score;
-        if (textMesh)
-        {
-            textMesh.text = "Score:" + playerScore;
-        }
-
+        
         screenCanvas.interactable = true;
         screenCanvas.alpha = 1;
         screenCanvas.blocksRaycasts = true;

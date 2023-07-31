@@ -13,12 +13,14 @@ public class ScoreUI : MonoBehaviour
 
     private void Awake()
     {
+       
         textComponent = GetComponent<TextMeshProUGUI>();
     }
 
     private void Start()
     {
-        scoreValue = 0;
+        scoreValue = PlayerPrefs.GetInt("Score");
+        OnScoreUp(scoreValue);
         scoreChannelSO.Subscribe(OnScoreUp);
     }
 
@@ -32,7 +34,6 @@ public class ScoreUI : MonoBehaviour
     /// <param name="obj"></param>
     private void OnScoreUp(int obj)
     {
-        scoreValue += obj;
-        textComponent.text = scoreText + scoreValue;
+        textComponent.text = scoreText + obj;
     }
 }

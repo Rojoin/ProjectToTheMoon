@@ -1,38 +1,54 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
 /// <summary>
 /// Class for the TutorialSecuence
 /// </summary>
 public class TutorialSecuence : MonoBehaviour
 {
-    [SerializeField] private GameObject enemy;
     [SerializeField] private List<PopUpText> popUpText;
+    [FormerlySerializedAs("position")] [SerializeField]
+    private Transform enemyPos;
     [SerializeField] private float maxTimeBetweenText;
-    [SerializeField] private  float timeUntilChangeScene = 2f;
+    [SerializeField] private VoidChannelSO OnEnemyDead;
+    [SerializeField] private float timeUntilChangeScene = 2f;
     [SerializeField] private VoidChannelSO goBackToMenu;
+    [SerializeField] private EnemyManager factory;
+    private EnemyHealth enemy;
     private int currentTextCounter = -1;
     private int maxTextCounter = 0;
     private float currentTimeBetweenText;
 
+    private void Awake()
+    {
+        OnEnemyDead.Subscribe(CheckIfGameShouldEnd);
+    }
+
+    private void OnDisable()
+    {
+        OnEnemyDead.Unsubscribe(CheckIfGameShouldEnd);
+    }
+
     private IEnumerator Start()
     {
+        factory.SpawnEnemy(EnemyType.Tank, this.transform, out enemy);
+        enemy.GetComponent<EnemyShooting>().enabled = false;
+        enemy.transform.position = enemyPos.position;
+        enemy.transform.rotation = enemyPos.rotation;
         currentTextCounter = -1;
         currentTimeBetweenText = maxTimeBetweenText;
         maxTextCounter = popUpText.Count - 1;
-        while(gameObject.activeSelf)
+        while (gameObject.activeSelf)
         {
             ShowMessage();
             yield return new WaitForSeconds(maxTimeBetweenText);
         }
     }
 
-    private void Update()
-    {
-        CheckIfGameShouldEnd();
-    }
+
+
     /// <summary>
     /// Show a PopUpText according to time
     /// </summary>
@@ -44,23 +60,21 @@ public class TutorialSecuence : MonoBehaviour
             {
                 popUpText[currentTextCounter].DeactivateBox();
             }
+
             currentTextCounter++;
             Debug.Log(currentTextCounter);
             popUpText[currentTextCounter].ActiveBox();
         }
-      
-
     }
+
     /// <summary>
     /// Check if the condition to end the tutorial is fullfil and changes scene
     /// </summary>
     private void CheckIfGameShouldEnd()
     {
-        if (!enemy.GetComponent<EnemyHealth>().IsAlive())
-        {
-            Invoke(nameof(GoBackToMenu), timeUntilChangeScene);
-        }
+        Invoke(nameof(GoBackToMenu), timeUntilChangeScene);
     }
+
     /// <summary>
     /// Load MenuScene
     /// </summary>

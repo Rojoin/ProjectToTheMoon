@@ -36,6 +36,7 @@ public class MenuController : MonoBehaviour
     public void GoToGame()
     {
         sfxChannel.RaiseEvent(button, 1);
+        PlayerPrefs.SetInt("Score",0);
         gotoFirstLevelChannel.RaiseEvent();
     }
 

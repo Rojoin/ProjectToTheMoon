@@ -11,6 +11,7 @@ public class MoveCrosshair : MonoBehaviour
     [SerializeField] private Transform aimParent;
     [SerializeField] private Vector2 offset;
     private Vector3 velocity = Vector3.zero;
+    private  Vector3 targetLocalPos;
 
 
     /// <summary>
@@ -21,7 +22,7 @@ public class MoveCrosshair : MonoBehaviour
     {
         while (gameObject.activeSelf)
         {
-            yield return null;
+            yield return new WaitForEndOfFrame();
             FollowTarget();
         }
     }
@@ -32,7 +33,7 @@ public class MoveCrosshair : MonoBehaviour
     {
         if (Camera.main == null)
             return;
-        Vector3 targetLocalPos = Camera.main.WorldToScreenPoint(aimParent.position);
+        targetLocalPos = Camera.main.WorldToScreenPoint(aimParent.position);
         Vector3 crossHairPos = transform.position;
 
         transform.position = Vector3.SmoothDamp(crossHairPos, new Vector3(targetLocalPos.x + offset.x, targetLocalPos.y + offset.y, crossHairPos.z), ref velocity, smoothTime);

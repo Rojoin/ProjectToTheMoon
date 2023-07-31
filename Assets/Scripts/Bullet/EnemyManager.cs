@@ -37,9 +37,10 @@ public class EnemyManager : MonoBehaviour
         turretEnemyPool = new ObjectPool<EnemyHealth>(() => Instantiate(turretEnemy,holder),
             enemy => { enemy.gameObject.SetActive(true); }, enemy => { enemy.gameObject.SetActive(false); },
             enemy => { Destroy(enemy.gameObject); }, false, 6, 16);
+        
         bossEnemyPool = new ObjectPool<EnemyHealth>(() => Instantiate(bossEnemy,holder),
             enemy => { enemy.gameObject.SetActive(true); }, enemy => { enemy.gameObject.SetActive(false); },
-            enemy => { Destroy(enemy.gameObject); }, false, 1, 1);
+            enemy => { Destroy(enemy.gameObject); }, true, 0, 1);
     }
 
     private void KillEnemyBasic(EnemyHealth enemy)

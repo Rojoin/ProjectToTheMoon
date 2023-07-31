@@ -203,7 +203,7 @@ MonoBehaviour:
   playerModel: {fileID: 1384327598977671451}
   animator: {fileID: 3317901509801995504}
   aimTarget: {fileID: 0}
-  rollTime: 0
+  rollTime: 0.35
   xySpeed: 20
   lookSpeed: 100
   leanLimit: 80
