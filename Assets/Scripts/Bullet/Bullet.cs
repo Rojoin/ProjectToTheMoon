@@ -67,4 +67,18 @@ public class Bullet : MonoBehaviour
     {
         StartCoroutine(OnStart());
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.TryGetComponent<HealthSystem>(out var health))
+        {
+            health.ReceiveDamage(Damage);
+            if (!health.IsAlive())
+            {
+                health.Deactivate();
+            }
+
+        }
+        DestroyGameObject();
+    }
 }

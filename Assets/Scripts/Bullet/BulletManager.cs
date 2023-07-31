@@ -10,10 +10,13 @@ public class BulletManager : MonoBehaviour
     [Header("Transform")]
     [SerializeField] private Transform bulletParent;
     [SerializeField] private Transform world;
-    [FormerlySerializedAs("bullet")] [SerializeField] private Bullet bulletPrefab;
+    [SerializeField] private Transform turretWorld;
+    [SerializeField] private TurretDirection _turretDirection;
+    [FormerlySerializedAs("bullet")] [SerializeField]
+    private Bullet bulletPrefab;
     private BulletFactory factory = new BulletFactory();
     private ObjectPool<Bullet> _pool;
-  
+
 
     public void Awake()
     {
@@ -32,14 +35,20 @@ public class BulletManager : MonoBehaviour
     {
         _pool.Release(bul);
     }
+
     private void SpawnBullet(Transform pos, string layer, BulletConfiguration bulletConfig, Quaternion rotation)
     {
         var newBullet = _pool.Get();
-        factory.ConfigureBullet(ref newBullet, pos, layer, bulletConfig, world, bulletParent, rotation);
+        if (bulletConfig.directionHandler == _turretDirection)
+        {
+            factory.ConfigureBullet(ref newBullet, pos, layer, bulletConfig, turretWorld, turretWorld, rotation);
+        }
+        else
+        {
+            factory.ConfigureBullet(ref newBullet, pos, layer, bulletConfig, world, bulletParent, rotation);
+        }
+
         newBullet.Init(KillBullet);
         newBullet.StartBullet();
     }
-
-   
 }
-

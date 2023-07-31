@@ -51,6 +51,8 @@ MonoBehaviour:
     type: 2}
   bulletParent: {fileID: 0}
   world: {fileID: 0}
+  turretWorld: {fileID: 0}
+  _turretDirection: {fileID: 11400000, guid: c82bff6c3cbb2a1469208bb9c0b26f32, type: 2}
   bulletPrefab: {fileID: 2672014167870166261, guid: f68c23854dd0056458ab89c9fca7be22,
     type: 3}
 --- !u!114 &9060738690195228362

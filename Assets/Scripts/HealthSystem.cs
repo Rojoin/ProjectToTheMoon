@@ -35,6 +35,7 @@ public abstract class HealthSystem : MonoBehaviour, IFillable
     public virtual void ReceiveDamage(float damage)
     {
         CurrentHealth -= damage;
+        onHit.Invoke();
     }
 
     public bool IsAlive()
@@ -53,17 +54,18 @@ public abstract class HealthSystem : MonoBehaviour, IFillable
         return maxHealthPoints;
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (!other.TryGetComponent<Bullet>(out var bullet))
-            return;
+   //private void OnTriggerEnter(Collider other)
+   //{
+   //    if (other.TryGetComponent<Bullet>(out var bullet))
+   //    {
+   //        onHit.Invoke();
+   //        ReceiveDamage(bullet.Damage);
+   //        bullet.DestroyGameObject();
+   //    }
 
-        onHit.Invoke();
-        ReceiveDamage(bullet.Damage);
-        bullet.DestroyGameObject();
-        if (!IsAlive())
-        {
-            Deactivate();
-        }
-    }
+   //    if (!IsAlive())
+   //    {
+   //        Deactivate();
+   //    }
+   //}
 }

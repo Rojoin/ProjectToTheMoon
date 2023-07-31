@@ -104,7 +104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootingPoints: {fileID: 5543777277399325048}
-  attackCooldown: 0.2
+  attackCooldown: 1
   askForBulletChannel: {fileID: 11400000, guid: 8c811a9be8b34c6478075ea52e05dacb,
     type: 2}
   bulletConfiguration: {fileID: 11400000, guid: 45758ca129c6c264980642ef47fc1e23,

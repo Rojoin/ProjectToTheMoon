@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc2fc570d1b8442c9533d8ca1a1311cc, type: 3}
-  m_Name: EnemyLaserConfig
+  m_Script: {fileID: 11500000, guid: d534645452cedfc4abdc82054ecb6b81, type: 3}
+  m_Name: BulletConfigTurret
   m_EditorClassIdentifier: 
-  lifeTime: 0.5
-  damage: 100
-  distance: 80
+  velocity: 70
+  damage: 30
+  directionHandler: {fileID: 11400000, guid: c82bff6c3cbb2a1469208bb9c0b26f32, type: 2}

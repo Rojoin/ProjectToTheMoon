@@ -12,8 +12,10 @@ public class EnemyMovementPattern : MonoBehaviour
     public EnemyManager enemyFactory;
     [SerializeField] private Transform enemyHolder;
     [SerializeField] private int defaultEnemyCount = 0;
-    [SerializeField] private int specialEnemyCount = 0;
-    [SerializeField] private Transform bulletHolder;
+    [FormerlySerializedAs("specialEnemyCount")] [SerializeField]
+    private int tankEnemyCount = 0;
+    [FormerlySerializedAs("laserEnemyCouunt")] [SerializeField]
+    private int laserEnemyCount = 0;
     [SerializeField] private Color color;
     [SerializeField] private float speed;
     [SerializeField] private Transform[] points;
@@ -76,16 +78,23 @@ public class EnemyMovementPattern : MonoBehaviour
 
         for (int i = 0; i < defaultEnemyCount; i++)
         {
-            enemyFactory.SpawnEnemy(EnemyType.Basic,enemyHolder, out var aux);
+            enemyFactory.SpawnEnemy(EnemyType.Basic, enemyHolder, out var aux);
             var enemyToAdd = aux.GetComponent<EnemyMovement>();
             enemysToSpawn.Add(enemyToAdd);
         }
 
-        for (int i = 0; i < specialEnemyCount; i++)
+        for (int i = 0; i < tankEnemyCount; i++)
         {
-           enemyFactory.SpawnEnemy(EnemyType.Tank,enemyHolder, out var aux);
-           var enemyToAdd = aux.GetComponent<EnemyMovement>();
-           enemysToSpawn.Add(enemyToAdd);
+            enemyFactory.SpawnEnemy(EnemyType.Tank, enemyHolder, out var aux);
+            var enemyToAdd = aux.GetComponent<EnemyMovement>();
+            enemysToSpawn.Add(enemyToAdd);
+        }
+
+        for (int i = 0; i < laserEnemyCount; i++)
+        {
+            enemyFactory.SpawnEnemy(EnemyType.Laser, enemyHolder, out var aux);
+            var enemyToAdd = aux.GetComponent<EnemyMovement>();
+            enemysToSpawn.Add(enemyToAdd);
         }
 
         foreach (var enemy in enemysToSpawn)
@@ -111,6 +120,7 @@ public class EnemyMovementPattern : MonoBehaviour
             {
                 spawnTimer = 0.0f;
                 enemysToSpawn[enemyCounter].SetActive();
+                enemysToSpawn[enemyCounter].GetComponent<EnemyShooting>().enabled = true;
                 enemyCounter++;
             }
         }

@@ -22,7 +22,6 @@ public class EnemyHealth : HealthSystem
             onDeath.Invoke();
             OnScoreUpChannel.RaiseEvent(scoreValue);
         }
-        transform.gameObject.SetActive(false);
         killAction(this);
     }
 }

@@ -244,7 +244,7 @@ MonoBehaviour:
     type: 2}
   shootingPoints: {fileID: 3538858947297452951}
   playerTransforms: {fileID: 0}
-  shootBulletCooldown: 0.35
+  shootBulletCooldown: 0.4
 --- !u!114 &3569911972068193591
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -143,7 +143,7 @@ GameObject:
   - component: {fileID: 7667291150704976231}
   - component: {fileID: 6833323196664119075}
   m_Layer: 3
-  m_Name: StrongEnemy
+  m_Name: TankEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -207,7 +207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a3c8eb61683a1143b1466fa82480be2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 3
   minDistance: 2
   movementPoints:
   - {fileID: 4422717194562193673}
@@ -232,7 +232,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootingPoints: {fileID: 307250181581190972}
-  attackCooldown: 0.2
+  attackCooldown: 2
   askForBulletChannel: {fileID: 11400000, guid: 8c811a9be8b34c6478075ea52e05dacb,
     type: 2}
   bulletConfiguration: {fileID: 11400000, guid: 45758ca129c6c264980642ef47fc1e23,
